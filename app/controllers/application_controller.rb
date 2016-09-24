@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
 
 protected
 	  def after_sign_in_path_for(resource)
-		  view_context.sti_users_path(current_user.user_type, current_user)
+      view_context.sti_users_path(resource.user_type, resource)
 		end
   
     def configure_permitted_parameters
