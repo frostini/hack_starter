@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-
   devise_for :users, controllers: { sessions: 'users/sessions' }
+  resources :users, only: [:show, :index]
+  
 
 # cancel_user_registration GET    /users/cancel(.:format)        devise/registrations#cancel
 #        user_registration POST   /users(.:format)               devise/registrations#create
@@ -13,7 +14,8 @@ Rails.application.routes.draw do
   #                        PUT    /users(.:format)               devise/registrations#update
 
 
-  resources :users, only: [:show, :index]
+
+# match 'users/sign_out' => "devise/sessions#destroy"
 
   root 'home#index'
 
