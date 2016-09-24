@@ -106,7 +106,7 @@ h5 {
   color: rgba(255, 255, 255, 0.5);
 }
 blockquote {
-  border-left: 5px solid #ff6849 !important;
+  border-left: 5px solid #f8b19d !important;
   border: 1px solid rgba(120, 130, 140, 0.13);
 }
 p {
@@ -531,7 +531,7 @@ hr {
   background-color: #fb9678 !important;
 }
 .bg-theme {
-  background-color: #ff6849 !important;
+  background-color: #f8b19d !important;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
 }
 .bg-theme-dark {
@@ -855,8 +855,8 @@ pre {
 .pagination > .active > span:hover,
 .pagination > .active > a:focus,
 .pagination > .active > span:focus {
-  background-color: #ff6849;
-  border-color: #ff6849;
+  background-color: #f8b19d;
+  border-color: #f8b19d;
 }
 .pager li > a,
 .pager li > span {
@@ -923,7 +923,7 @@ pre {
   color: #000000;
 }
 .bg-title .breadcrumb .active {
-  color: #ff6849;
+  color: #f8b19d;
 }
 .logo b {
   /**********background:@themecolor;**********/
@@ -1099,8 +1099,8 @@ pre {
 }
 .btn-custom,
 .btn-custom.disabled {
-  background: #ff6849;
-  border: 1px solid #ff6849;
+  background: #f8b19d;
+  border: 1px solid #f8b19d;
   color: #ffffff;
 }
 .btn-custom:hover,
@@ -1109,10 +1109,10 @@ pre {
 .btn-custom.disabled:focus,
 .btn-custom.focus,
 .btn-custom.disabled.focus {
-  background: #ff6849;
+  background: #f8b19d;
   opacity: 0.8;
   color: #ffffff;
-  border: 1px solid #ff6849;
+  border: 1px solid #f8b19d;
 }
 .btn-primary,
 .btn-primary.disabled {
@@ -2877,7 +2877,7 @@ Basic List
   color: #ffffff;
 }
 .chat-list .odd .chat-text {
-  background: #ff6849;
+  background: #f8b19d;
 }
 .chat-list .odd .chat-text h4 {
   color: #ffffff;
@@ -3055,9 +3055,9 @@ Basic List
   top: 50%;
 }
 .alert-custom {
-  background: #ff6849;
+  background: #f8b19d;
   color: #ffffff;
-  border-color: #ff6849;
+  border-color: #f8b19d;
 }
 .alert-inverse {
   background: #4c5667;
@@ -3112,9 +3112,9 @@ Basic List
 .customtab li.active a:focus {
   background: #ffffff;
   border: 0px;
-  border-bottom: 2px solid #ff6849;
+  border-bottom: 2px solid #f8b19d;
   margin-bottom: -1px;
-  color: #ff6849;
+  color: #f8b19d;
 }
 .customtab li a,
 .customtab li a:hover,
@@ -3130,8 +3130,8 @@ Basic List
 .customtab2 li.active a,
 .customtab2 li.active a:hover,
 .customtab2 li.active a:focus {
-  background: #ff6849;
-  border: 1px solid #ff6849;
+  background: #f8b19d;
+  border: 1px solid #f8b19d;
   color: #ffffff;
 }
 .customtab2 li a,
@@ -3161,9 +3161,9 @@ Basic List
 .tabs-vertical li.active a,
 .tabs-vertical li.active a:hover,
 .tabs-vertical li.active a:focus {
-  background: #ff6849;
+  background: #f8b19d;
   border: 0px;
-  border-right: 2px solid #ff6849;
+  border-right: 2px solid #f8b19d;
   margin-right: -1px;
   color: #ffffff;
 }
@@ -3173,7 +3173,7 @@ Basic List
 .customvtab .tabs-vertical li.active a:focus {
   background: #ffffff;
   border: 0px;
-  border-right: 2px solid #ff6849;
+  border-right: 2px solid #f8b19d;
   margin-right: -1px;
   color: #2b2b2b;
 }
@@ -3181,7 +3181,7 @@ Basic List
 .nav-pills > li.active > a,
 .nav-pills > li.active > a:focus,
 .nav-pills > li.active > a:hover {
-  background: #ff6849;
+  background: #f8b19d;
   color: #ffffff;
 }
 .nav-pills > li > a {
@@ -3604,11 +3604,11 @@ th {
   border: 1px solid #e4e7ea;
 }
 table.focus-on tbody tr.focused th {
-  background-color: #ff6849;
+  background-color: #f8b19d;
   color: #ffffff;
 }
 table.focus-on tbody tr.focused td {
-  background-color: #ff6849;
+  background-color: #f8b19d;
   color: #ffffff;
 }
 .table-rep-plugin .table-responsive {
@@ -4139,7 +4139,7 @@ table.focus-on tbody tr.focused td {
   color: #fff;
   text-transform: uppercase;
   font-size: 13px;
-  background: #ff6849;
+  background: #f8b19d;
 }
 .right-sidebar .rpanel-title span {
   float: right;
@@ -4309,7 +4309,7 @@ ul#themecolors li:first-child {
   color: #686868;
 }
 .visited li.active a {
-  color: #ff6849;
+  color: #f8b19d;
 }
 /*Stats Row*/
 .stats-row {
@@ -4396,7 +4396,7 @@ ul#themecolors li:first-child {
 .nav-pills-rounded li.active a,
 .nav-pills-rounded li.active a:focus,
 .nav-pills-rounded li.active a:hover {
-  background: #ff6849;
+  background: #f8b19d;
   color: #ffffff;
 }
 /*analytics-info*/
@@ -4955,7 +4955,7 @@ ul.list-icons li i {
 .datepicker table tr td.today.disabled,
 .datepicker table tr td.today.disabled:hover {
   background-image: none;
-  background: #ff6849;
+  background: #f8b19d;
   color: #ffffff;
 }
 .datepicker table tr td.active,
@@ -5104,16 +5104,16 @@ ul.list-icons li i {
   background: rgba(0, 0, 0, 0.1);
 }
 #side-menu > li > a.active {
-  border-left: 3px solid #ff6849;
+  border-left: 3px solid #f8b19d;
   color: #ffffff;
   background: rgba(0, 0, 0, 0);
 }
 #side-menu ul > li > a:hover {
-  color: #ff6849;
+  color: #f8b19d;
   background: none;
 }
 #side-menu ul > li > a.active {
-  color: #ff6849;
+  color: #f8b19d;
 }
 .sidebar .arrow {
   position: absolute;
@@ -5143,7 +5143,7 @@ ul.list-icons li i {
   display: none!important;
 }
 .fix-sidebar .top-left-part {
-  background: #ff6849;
+  background: #f8b19d;
 }
 /*!
  *  Font Awesome 4.5.0 by @davegandy - http://fontawesome.io - @fontawesome
@@ -14502,7 +14502,7 @@ a.mytooltip {
 .mega-dropdown-menu > li > ul > li > a:hover,
 .mega-dropdown-menu > li > ul > li > a:focus {
   text-decoration: none;
-  color: #ff6849;
+  color: #f8b19d;
 }
 .mega-dropdown-menu .dropdown-header {
   font-size: 16px;
@@ -14604,7 +14604,7 @@ table.dataTable.order-column.stripe tbody tr.even > .sorting_1 {
   color: #686868;
 }
 .list-style-none li a:hover {
-  color: #ff6849;
+  color: #f8b19d;
 }
 .list-style-none li a span {
   float: right;
@@ -14707,7 +14707,7 @@ table.dataTable.order-column.stripe tbody tr.even > .sorting_1 {
   color: #686868;
 }
 .el-element-overlay .el-card-item .el-card-content a:hover {
-  color: #ff6849;
+  color: #f8b19d;
 }
 .el-element-overlay .el-card-item .el-overlay-1 {
   width: 100%;
@@ -14818,7 +14818,7 @@ table.dataTable.order-column.stripe tbody tr.even > .sorting_1 {
   display: block;
 }
 .common-list li a:hover {
-  color: #ff6849;
+  color: #f8b19d;
 }
 /*For Laptop (1280px)*/
 @media (max-width: 1350px) {
