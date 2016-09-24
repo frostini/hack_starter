@@ -5,9 +5,19 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+	<%= yield :javascript_includes %>
+	
 </head>
 <body>
 
+
+ <body class="fix-sidebar">
+      <!-- Preloader -->
+      <div class="preloader">
+         <svg class="circular" viewBox="25 25 50 50">
+      <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+  </svg>
+      </div>
 <%= yield %>
 
 </body>
