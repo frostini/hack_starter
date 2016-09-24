@@ -1,3 +1,4 @@
-<h1>Hi, I'm  <%= @user.first_name %>.</h1>
-<p>My last name is <%= @user.last_name %></p>
-<p>And my ID is <%= @user.public_user_id %></p>
+<h1>Hi, I'm  <%= @user.try(:first_name) %>.</h1>
+<p>My last name is <%= @user.try(:last_name) %></p>
+<p>And my ID is <%= @user.try(:public_user_id) %></p>
+<p>And my email is <%= @user.try(:email) %></p>
