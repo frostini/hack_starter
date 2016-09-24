@@ -13,7 +13,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.first_name %></td>
+        <td><%= user.first_name if user.first_name.present?%></td>
         <td><%= user.last_name %></td>
         <td><%= user.public_user_id %></td>
         <td><%= link_to 'Show', sti_users_path(user.user_type, user) %></td>
