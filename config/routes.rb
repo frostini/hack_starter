@@ -1,12 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users, controllers: { sessions: 'users/sessions' }, skip: [:registrations]
-
-as :user do
-    get "/users/sign_up" => "devise/registrations#new", :as => :new_user_registration
-    post "/users" => "devise/registrations#create", :as => :user_registration
-    get "users/:id/edit" => "users#edit", :as => :edit_user
-end
+  devise_for :users, controllers: { sessions: 'users/sessions' }
 
 # cancel_user_registration GET    /users/cancel(.:format)        devise/registrations#cancel
 #        user_registration POST   /users(.:format)               devise/registrations#create
@@ -18,17 +12,11 @@ end
   #                        PATCH  /users(.:format)               devise/registrations#update
   #                        PUT    /users(.:format)               devise/registrations#update
 
-  
+
   resources :users, only: [:show, :index]
-  
-  resources :admins, controller: "users", type: "Admin", only: [:show, :index, :edit, :update]
-  
-  resources :hosts, controller: "users", type: "Host", only: [:show, :index, :edit, :update]
-  
-  resources :participants, controller: "users", type: "Participant", only: [:show, :index, :edit, :update]
-  
+
   root 'home#index'
-  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
