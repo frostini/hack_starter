@@ -9,16 +9,20 @@ class User < ActiveRecord::Base
   # HOST                  = "User::Host"
   self.inheritance_column = :user_type
 
-scope :admins, -> { where(user_type: 'Admin') } 
-scope :hosts, -> { where(user_type: 'Host') }
-scope :participants, -> { where(user_type: 'Participant') } 
+  has_many :dwellings
+  has_one :address, :as => :addressable
 
 
-def self.user_types
-	%w(Admin Host Participant)
-end
+  scope :admins, -> { where(user_type: 'Admin') }
+  scope :hosts, -> { where(user_type: 'Host') }
+  scope :participants, -> { where(user_type: 'Participant') }
 
-def self.user_types_for_select
-	self.user_types.map {|r| [r.humanize, r.camelcase]}
-end
+
+  def self.user_types
+  	%w(Admin Host Participant)
+  end
+
+  def self.user_types_for_select
+  	self.user_types.map {|r| [r.humanize, r.camelcase]}
+  end
 end

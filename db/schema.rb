@@ -11,28 +11,79 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160923010852) do
+ActiveRecord::Schema.define(version: 20160924110203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "addresses", force: :cascade do |t|
+    t.string   "addressable_id",   null: false
+    t.string   "addressable_type", null: false
+    t.string   "phone"
+    t.string   "line_1"
+    t.string   "line_2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zipcode"
+    t.decimal  "lat"
+    t.decimal  "lng"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "addresses", ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable", using: :btree
+  add_index "addresses", ["lat", "lng"], name: "index_address_on_lat_lng", using: :btree
+  add_index "addresses", ["zipcode"], name: "index_on_addresses_zipcode", using: :btree
+
+  create_table "dwellings", force: :cascade do |t|
+    t.integer  "user_id",       null: false
+    t.string   "display_name"
+    t.integer  "monthly_rent"
+    t.integer  "num_rooms"
+    t.integer  "num_bathrooms"
+    t.string   "property_type"
+    t.boolean  "is_available"
+    t.string   "img_url"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "dwellings", ["user_id"], name: "index_dwellings_on_user_id", using: :btree
+
+  create_table "dwellings_programs", force: :cascade do |t|
+    t.integer  "dwelling_id"
+    t.integer  "program_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "dwellings_programs", ["dwelling_id", "program_id"], name: "index_on_dwellings_programs", using: :btree
+
+  create_table "programs", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "programs", ["name"], name: "index_programs_on_name", using: :btree
+
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "user_type"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email",                    default: "", null: false
+    t.string   "encrypted_password",       default: "", null: false
+    t.integer  "monthly_household_income"
+    t.integer  "household_member_size"
+    t.string   "voucher_number"
+    t.string   "phone"
+    t.string   "avatar_url"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "public_user_id"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "user_type"
+    t.integer  "sign_in_count",            default: 0,  null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

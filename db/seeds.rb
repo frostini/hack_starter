@@ -8,24 +8,54 @@
 
 
 
-host_1 = Host.new(	:first_name =>"Woddy",:last_name => "Allen",:public_user_id => "host_1234",:email => "host@gmail.com",:password => "password123")
+host_1 = Host.new(
+                    :first_name =>"Woddy",
+                    :last_name => "Allen",
+                    :email => "host@gmail.com",
+                    :password => "password123")
 host_1.save
 puts host_1
 
 
-participant_1 = Participant.new(	:first_name =>"Sancho",
+participant_1 = Participant.new(
+                    :first_name =>"Sancho",
 										:last_name => "Pansa",
-										:public_user_id => "participant_1234",
 										:email => "participant@gmail.com",
 										:password => "password123")
 participant_1.save
 puts participant_1
 
 
-admin_1 = Admin.new(	:first_name =>"Boss",
+admin_1 = Admin.new(:first_name =>"Boss",
 										:last_name => "Person",
-										:public_user_id => "admin_1234",
 										:email => "admin@gmail.com",
 										:password => "password123")
 admin_1.save
 puts admin_1
+
+Program.create(name: "Rapid Rehousing")
+Program.create(name: "Month To Month")
+Program.create(name: "Long Term")
+
+dwelling_1 = Dwelling.create(
+  user_id:        host_1.id,
+  display_name:   "Sweet home in heart of San Jose",
+  monthly_rent:   3000,
+  num_rooms:      2,
+  num_bathrooms:  1,
+  property_type:  "condo",
+  is_available:   true
+)
+
+dwelling_1.programs << Programs.first(2)
+
+Address.create(
+  addressable_id: 1,
+  addressable_type: "Dwelling",
+  phone: "1231231234",
+  line_1: "201 S Market St",
+  city: "San Jose", state: "CA",
+  zipcode: "95113",
+  lat: 37.331436,
+  lng: -121.890214
+)
