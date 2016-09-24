@@ -14,8 +14,8 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.try(:first_name)%></td>
-        <td><%= user.last_name %></td>
-        <td><%= user.public_user_id %></td>
+        <td><%= user.try(:last_name) %></td>
+        <td><%= user.try(:public_user_id) %></td>
         <td><%= link_to 'Show', sti_users_path(user.user_type, user) %></td>
         <td><%= link_to 'Edit', "" %></td>
         <td><%= link_to 'Destroy', "", method: :delete, data: { confirm: 'Are you sure?' } %></td>
