@@ -1,6 +1,6 @@
 <li class="dropdown">
    <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#">
-      <%= image_tag("varun.jpg", class: "img-circle nav-profile-marg-fix", width: 36)%>
+      <%= image_tag(current_user.avatar_url, class: "img-circle nav-profile-marg-fix", width: 36)%>
       <b class="hidden-xs">
          <%=current_user.try(:first_name) || "User" %>
       </b>
