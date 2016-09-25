@@ -1,11 +1,16 @@
 <li class="dropdown">
-   <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <%= image_tag("varun.jpg", class: "img-circle nav-profile-marg-fix", width: 36)%><b class="hidden-xs">Steave</b> </a>
+   <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#">
+      <%= image_tag("varun.jpg", class: "img-circle nav-profile-marg-fix", width: 36)%>
+      <b class="hidden-xs">
+         <%=current_user.try(:first_name) || "User" %>
+      </b>
+   </a>
    <ul class="dropdown-menu dropdown-user scale-up">
       <li>
-         <a href="#">
+         <%= link_to user_path(current_user.id) do %>
             <i class="ti-user"></i>
             My Profile
-         </a>
+         <% end %>
       </li>
       <li>
          <a href="#">
@@ -21,10 +26,10 @@
       </li>
       <li role="separator" class="divider"></li>
       <li>
-         <a href="#">
+         <%= link_to edit_user_registration_path(current_user.id) do %>
             <i class="ti-settings"></i>
-            Account Setting
-         </a>
+            Edit Profile
+         <% end %>
       </li>
       <li role="separator" class="divider"></li>
       <li>
