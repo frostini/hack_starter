@@ -23,8 +23,8 @@
             <%= render "layouts/navprofile" %>
          <%end%>
          <% unless user_signed_in? %>
-            <a style="margin-top:18px !important;display:inline-block;color:rgba(255,255,255, 1);" href="#" class="m-r-20 m-t-30 ">Dashboard</a>
-            <a  href="https://themeforest.net/item/elite-admin-responsive-dashboard-web-app-kit-/16750820" target="_blank" class="btn btn-danger pull-right m-r-20 m-t-10 p-h-10 btn-rounded btn-outline">Sign Up</a>
+            <%= link_to('Login', new_user_session_path, class: "nav-sign-in")  %>  
+            <%= link_to('Register', new_user_registration_path, class: "btn btn-sign-up pull-right m-r-20 m-t-nav-button p-h-nav-signup btn-rounded")  %>
          <%end%>
       </ul>
    </div>

@@ -1,4 +1,45 @@
-.p-h-10{
-	padding-left:10px !important;
-	padding-right:10px !important;
+.btn-sign-up {
+  background: rgba(251, 150, 120, 1);
+  border: 1px solid rgba(251, 150, 120, 1);
+  color:white;
+  transition: all 1s;
+  box-shadow: none !important;
 }
+
+.btn-sign-up:hover,
+.btn-sign-up:focus,
+.btn-sign-up:active
+ {
+  color: rgba(251, 150, 120, 1);
+  background: rgba(251, 150, 120, 0);
+}
+
+.p-h-nav-signup{
+  padding-left:30px !important;
+  padding-right:30px !important;
+}
+.m-t-nav-button{
+  margin-top: 13px !important;
+}
+
+.nav-sign-in{
+	margin-top: 22px !important;
+	display:inline-block;
+	margin-right: 15px;
+	transition: all 1s;
+	color:rgba(255,255,255, 1);
+}
+.nav-sign-in:hover{
+	color: #fb9678
+}
+
+.nav-profile-marg-fix{
+	margin-bottom: -10px;
+}
+
+@media (min-width: 600px) {
+	.nav-sign-in{
+		margin-right: 30px;
+	}
+}
+
