@@ -25,14 +25,14 @@ ActiveRecord::Schema.define(version: 20160924221046) do
     t.string   "city"
     t.string   "state"
     t.string   "zipcode"
-    t.decimal  "lat"
-    t.decimal  "lng"
+    t.float    "latitude"
+    t.float    "longitude"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
 
   add_index "addresses", ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable", using: :btree
-  add_index "addresses", ["lat", "lng"], name: "index_address_on_lat_lng", using: :btree
+  add_index "addresses", ["latitude", "longitude"], name: "index_address_on_lat_lng", using: :btree
   add_index "addresses", ["zipcode"], name: "index_on_addresses_zipcode", using: :btree
 
   create_table "dwelling_applications", force: :cascade do |t|

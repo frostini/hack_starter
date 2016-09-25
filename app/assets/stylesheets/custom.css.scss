@@ -37,9 +37,18 @@
 	margin-bottom: -10px;
 }
 
+.user-bg{
+	height: 150px !important;
+}
+
+
 @media (min-width: 600px) {
 	.nav-sign-in{
 		margin-right: 30px;
 	}
 }
 
+#map{
+	width:200px;
+	height: 200px;
+}

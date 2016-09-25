@@ -48,6 +48,17 @@ dwelling_1 = Dwelling.create(
   is_available:   true
 )
 
+dwelling_1 = Dwelling.create(
+  host_id:        host_1.id,
+  participant_id: participant_1.id,
+  display_name:   "Come home to San Francisco",
+  monthly_rent:   3000,
+  num_rooms:      3,
+  num_bathrooms:  2,
+  property_type:  "condo",
+  is_available:   true
+)
+
 dwelling_1.programs << Program.first(2)
 
 Address.create(
@@ -56,9 +67,15 @@ Address.create(
   phone: "1231231234",
   line_1: "201 S Market St",
   city: "San Jose", state: "CA",
-  zipcode: "95113",
-  lat: 37.331436,
-  lng: -121.890214
+  zipcode: "95113"
+)
+Address.create(
+  addressable_id: 2,
+  addressable_type: "Dwelling",
+  phone: "1231231234",
+  line_1: "1350 Golden Gate Ave.",
+  city: "San Francisco", state: "CA",
+  zipcode: "94115"
 )
 
 DwellingApplication.create(
