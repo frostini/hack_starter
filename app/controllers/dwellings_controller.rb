@@ -3,6 +3,7 @@ before_action :authenticate_user!, except: [:show, :index]
 before_action :set_dwelling_context, except: [:index]
 
   def index
+    @dwelling = Dwelling.includes(:address)
   end
 
   def show

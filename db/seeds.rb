@@ -56,9 +56,9 @@ Address.create(
   phone: "1231231234",
   line_1: "201 S Market St",
   city: "San Jose", state: "CA",
-  zipcode: "95113",
-  lat: 37.331436,
-  lng: -121.890214
+  zipcode: "95113"
+  # latitude: 37.331436,
+  # longitude: -121.890214
 )
 
 DwellingApplication.create(

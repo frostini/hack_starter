@@ -75,6 +75,7 @@ GEM
       railties (>= 4.0, < 5.1)
     erubis (2.7.0)
     execjs (2.7.0)
+    geocoder (1.4.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
@@ -194,6 +195,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise
   dotenv-rails
+  geocoder
   jbuilder (~> 2.0)
   jquery-rails
   mailboxer (~> 0.14)
