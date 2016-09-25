@@ -12,14 +12,17 @@
     <%= render "layouts/preloader" %>
     <div id="wrapper">
       <%= render "layouts/navbar" %> 
+      
+
       <%= render "layouts/leftsidebar" %>
+
         <div id="page-wrapper">
           <div class="container-fluid">
             
             <%= render "layouts/subnav" %>
             <%= yield %>
 
-            <%= render "layouts/rightsidebar" %> 
+
           </div>
           <%= render "layouts/footer" %>
         </div>

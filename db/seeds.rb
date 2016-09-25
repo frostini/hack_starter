@@ -47,7 +47,7 @@ dwelling_1 = Dwelling.create(
   is_available:   true
 )
 
-dwelling_1.programs << Programs.first(2)
+dwelling_1.programs << Program.first(2)
 
 Address.create(
   addressable_id: 1,

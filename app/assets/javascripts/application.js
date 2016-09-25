@@ -13,7 +13,7 @@
 
 
 //= require jquery
-
+//= require jquery_ujs
 //= require bootstrap
 //= require sidebar-nav
 //= require jquery.slimscroll
