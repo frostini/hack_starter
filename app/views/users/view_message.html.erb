@@ -1,0 +1,51 @@
+<div class="row">
+   <div class="col-md-12">
+      <div class="white-box">
+
+        <div class="row">
+          <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 inbox-panel">
+            <div>
+              <div class="list-group mail-list m-t-20">
+                <h5><a href="#" class="list-group-item active">Sent Inquiries</a></h5>
+                <h5><a href="#" class="list-group-item">Applications <span class="label label-rouded label-success pull-right">5</span></a></h5>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-10 col-md-9 col-sm-8 col-xs-12 mail_listing">
+            <div class="media m-b-30 p-t-20">
+              <h4 class="font-bold m-t-0"><%= @conversation.subject %></h4>
+              <hr>
+              <a class="pull-left" href="#">
+                <img class="media-object thumb-sm img-circle" src="../plugins/images/users/pawandeep.jpg" alt="">
+              </a>
+
+              <div class="media-body">
+                <h4 class="m-0">
+                  <% if current_user.is_participant? %>
+                    <%= @dwelling.host.name %>
+                  <% else %>
+                    <%= @participant.name %>
+                  <% end %>
+                </h4>
+                (<%= link_to @dwelling.display_name, dwelling_path(@dwelling) %>)
+                <span class="media-meta pull-right"><%= @conversation.updated_at.strftime("%b %-d") %></span>
+              </div>
+            </div>
+            <p>
+              <%= @receipts.last.message.body %>
+            </p>
+            <hr>
+            <div class="b-all p-20">
+              <p class="p-b-20">click here to <a href="#">Reply</a></p>
+            </div>
+          </div>
+
+          </div>
+        </div>
+        <!-- /.row -->
+
+      </div>
+   </div>
+
+</div>

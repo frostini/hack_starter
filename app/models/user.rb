@@ -7,18 +7,19 @@ class User < ActiveRecord::Base
   # for mailerboxer gem to allow messaging between users
   acts_as_messageable
 
-  # ADMIN                 = "User::Admin"
-  # PARTICIPANT           = "User::Participant"
-  # HOST                  = "User::Host"
+  ADMIN                 = "Admin"
+  PARTICIPANT           = "Participant"
+  HOST                  = "Host"
+
   self.inheritance_column = :user_type
 
   has_many :dwellings
   has_one :address, :as => :addressable
 
 
-  scope :admins, -> { where(user_type: 'Admin') }
-  scope :hosts, -> { where(user_type: 'Host') }
-  scope :participants, -> { where(user_type: 'Participant') }
+  scope :admins, -> { where(user_type: ADMIN) }
+  scope :hosts, -> { where(user_type: HOST) }
+  scope :participants, -> { where(user_type: PARTICIPANT) }
 
 
   def self.user_types
@@ -27,6 +28,14 @@ class User < ActiveRecord::Base
 
   def self.user_types_for_select
   	self.user_types.map {|r| [r.humanize, r.camelcase]}
+  end
+
+  def is_host?
+    user_type == HOST
+  end
+
+  def is_participant?
+    user_type == PARTICIPANT
   end
 
   def name

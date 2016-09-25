@@ -36,6 +36,20 @@ before_action :verify_user_access, only: [:show, :edit, :update]
 	# end
 
   def inbox
+    if current_user.is_participant?
+      @conversations = current_user.mailbox.sentbox
+    else
+      @conversation = current_user.mailbox.inbox
+    end
+  end
+
+  def view_message
+    @conversation = current_user.mailbox.sentbox.find_by_id(params[:id])
+    # right now conversation can only take place between 1 dwelling and 1 participant
+    dwellings, participants = @conversation.participants.partition{|p| p.class.to_s == "Dwelling" }
+    @dwelling = dwellings.first
+    @participant = participants.first
+    @receipts = @conversation.receipts_for current_user
   end
 
 private
