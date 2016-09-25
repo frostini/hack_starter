@@ -20,9 +20,9 @@ class ApplicationController < ActionController::Base
   # end
 
 protected
-	  # def after_sign_in_path_for(resource)
-      # view_context.sti_users_path(resource.user_type, resource)
-		# end
+	  def after_sign_in_path_for(resource)
+      dwellings_path
+		end
   
     def configure_permitted_parameters
       devise_parameter_sanitizer.for(:sign_up) do |u|

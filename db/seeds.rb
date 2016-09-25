@@ -7,66 +7,85 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-
-host_1 = Host.new(
+host_1 = User.new(
                     :first_name =>"Woody",
                     :last_name => "Allen",
                     :email => "host1@gmail.com",
-                    :phone => "1231231234"
-                    :password => "password123")
+                    :password => "password123",
+                    :user_type => "Host",
+                    avatar_url: "http://mostfamousperson.net/WoodyAllen.png"
+                  )
 host_1.save
 
 host_2 = Host.new(
                     :first_name =>"Christopher",
                     :last_name => "Nolan",
                     :email => "host2@gmail.com",
-                    :password => "password123")
+                    :password => "password123",
+                    :user_type => "Host",
+                    avatar_url: "http://media.todaybirthdays.com/thumb_x256x256/upload/2015/05/06/christopher-nolan.jpg"
+                  )
 host_2.save
 
 host_3 = Host.new(
                     :first_name =>"Sophia",
-                    :last_name => "Copla",
+                    :last_name => "Coppola",
                     :email => "host3@gmail.com",
-                    :password => "password123")
+                    :password => "password123",
+                    :user_type => "Host",
+                    avatar_url: "http://67.media.tumblr.com/avatar_f9b8ce9dbf6e_128.png"
+                  )
 host_3.save
 
 
-participant_1 = Participant.new(
+participant_1 = User.new(
                     :first_name =>"Sancho",
 										:last_name => "Pansa",
 										:email => "participant1@gmail.com",
                     monthly_household_income: 2100,
                     household_member_size: 3,
                     voucher_number: "323NLASD",
-										:password => "password123")
+										:password => "password123",
+                    :user_type => "Participant",
+                    avatar_url: "https://pbs.twimg.com/profile_images/2638310958/55307dc2a8dafc996e9fe81b50f146e8.jpeg"
+                    )
 participant_1.save
 
 
 participant_2 = Participant.new(
-                    :first_name =>"Avril",
-                    :last_name => "Bethers",
-                    monthly_household_income: 2500,
-                    household_member_size: 4,
-                    voucher_number: "ADR7889",
-                    :email => "participant2@gmail.com",
-                    :password => "password123")
+                  :first_name =>"Avril",
+                  :last_name => "Bethers",
+                  monthly_household_income: 2500,
+                  household_member_size: 4,
+                  voucher_number: "ADR7889",
+                  :email => "participant2@gmail.com",
+                  :password => "password123",
+                  :user_type => "Participant",
+                  avatar_url: "https://ichef.bbci.co.uk/images/ic/256x256/p01bqdkf.jpg"
+                )
 participant_2.save
 
 participant_3 = Participant.new(
-                    :first_name =>"Blake",
-                    :last_name => "Winston",
-                    monthly_household_income: 3000,
-                    household_member_size: 6,
-                    voucher_number: "6YHC246",
-                    :email => "participant3@gmail.com",
-                    :password => "password123")
+                  :first_name =>"Blake",
+                  :last_name => "Winston",
+                  monthly_household_income: 3000,
+                  household_member_size: 6,
+                  voucher_number: "6YHC246",
+                  :email => "participant3@gmail.com",
+                  :password => "password123",
+                  :user_type => "Participant",
+                  avatar_url: "https://pbs.twimg.com/profile_images/612801569386397696/PrTJyBpz.jpg"
+                )
 participant_3.save
 
 
-admin_1 = Admin.new(:first_name =>"Boss",
+admin_1 = User.new(
+                    :first_name =>"Boss",
 										:last_name => "Person",
 										:email => "admin@gmail.com",
-										:password => "password123")
+										:password => "password123",
+                    :user_type => "Admin"
+                  )
 admin_1.save
 puts admin_1
 

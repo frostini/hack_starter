@@ -2745,7 +2745,7 @@ Basic List
 }
 .user-bg .overlay-box {
   background: #9675ce;
-  opacity: 0.9;
+  opacity: 0;
   position: absolute;
   top: 0px;
   left: 0px;
@@ -2758,7 +2758,7 @@ Basic List
   margin-top: 30px;
 }
 .user-btm-box {
-  padding: 40px 0 10px;
+  padding: 20px 0 10px;
   clear: both;
   overflow: hidden;
 }
@@ -5105,7 +5105,7 @@ ul.list-icons li i {
 }
 #side-menu > li > a.active {
   border-left: 3px solid #f8b19d;
-  color: #ffffff;
+  color: #f8b19d;
   background: rgba(0, 0, 0, 0);
 }
 #side-menu ul > li > a:hover {
