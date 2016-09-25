@@ -38,19 +38,33 @@ before_action :verify_dwelling_application_access, only: [:approve_application, 
 
   def inbox
     if current_user.is_participant?
-      @conversations = current_user.mailbox.sentbox
+      @conversations  = current_user.mailbox.sentbox
+      @inbox_title    = "Send Inquiries"
+      @inbox_subtitle = "Recipient"
     else
-      @conversation = current_user.mailbox.inbox
+      @conversations  = current_user.listings.map {|listing| listing.mailbox.inbox}.flatten
+      @inbox_title    = "Received Inquiries"
+      @inbox_subtitle = "Sender"
     end
   end
 
   def view_message
-    @conversation = current_user.mailbox.sentbox.find_by_id(params[:id])
+    if current_user.is_participant?
+      @conversation = current_user.mailbox.sentbox.find_by_id(params[:id])
+      @inbox_title    = "Send Inquiries"
+    else
+      @conversation = current_user.listings.map {|listing| listing.mailbox.inbox}.flatten.find{|convo| convo.id == params[:id].to_i }
+      @inbox_title    = "Received Inquiries"
+    end
     # right now conversation can only take place between 1 dwelling and 1 participant
     dwellings, participants = @conversation.participants.partition{|p| p.class.to_s == "Dwelling" }
     @dwelling = dwellings.first
     @participant = participants.first
-    @receipts = @conversation.receipts_for current_user
+    if current_user.is_participant?
+      @receipts = @conversation.receipts_for current_user
+    else
+      @receipts = @conversation.receipts_for @dwelling
+    end
   end
 
   def dwelling_applications
