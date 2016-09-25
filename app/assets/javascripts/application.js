@@ -19,4 +19,5 @@
 //= require jquery.slimscroll
 //= require waves
 //= require custom.min
+//= require flashMessage
 

@@ -38,7 +38,8 @@ Program.create(name: "Month To Month")
 Program.create(name: "Long Term")
 
 dwelling_1 = Dwelling.create(
-  user_id:        host_1.id,
+  host_id:        host_1.id,
+  participant_id: participant_1.id,
   display_name:   "Sweet home in heart of San Jose",
   monthly_rent:   3000,
   num_rooms:      2,
@@ -58,4 +59,11 @@ Address.create(
   zipcode: "95113",
   lat: 37.331436,
   lng: -121.890214
+)
+
+DwellingApplication.create(
+  dwelling_id:  dwelling_1.id,
+  applicant_id: participant_1.id,
+  program_id:   Program.first.id,
+  message:      "Hi there! I would like to live here!"
 )

@@ -17,6 +17,14 @@ Rails.application.routes.draw do
 
 # match 'users/sign_out' => "devise/sessions#destroy"
 
+  resources :dwellings, only: [:show, :create, :index] do
+    member do
+      post 'send_inquiry'
+      get  'new_application'
+      post 'submit_application'
+    end
+  end
+
   root 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

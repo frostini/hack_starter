@@ -18,7 +18,8 @@ gem 'coffee-rails', '~> 4.1.0'
 # authentication gem
 gem 'devise'
 
-
+# for private messaging capability
+gem 'mailboxer', '~> 0.14'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

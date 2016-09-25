@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  # for mailerboxer gem to allow messaging between users
+  acts_as_messageable
+
   # ADMIN                 = "User::Admin"
   # PARTICIPANT           = "User::Participant"
   # HOST                  = "User::Host"
@@ -24,5 +27,17 @@ class User < ActiveRecord::Base
 
   def self.user_types_for_select
   	self.user_types.map {|r| [r.humanize, r.camelcase]}
+  end
+
+  def name
+    first_name.capitalize + ' ' + last_name_capitalize
+  end
+
+  def mailboxer_email(object)
+    #Check if an email should be sent for that object
+    #if true
+    return email
+    #if false
+    #return nil
   end
 end
