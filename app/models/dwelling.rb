@@ -7,4 +7,14 @@ class Dwelling < ActiveRecord::Base
 
   scope :available, -> { where(is_available: true) }
 
+  acts_as_messageable
+
+
+  def name
+    display_name
+  end
+
+  def mailboxer_email(object)
+    host.email
+  end
 end

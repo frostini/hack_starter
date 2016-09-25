@@ -35,6 +35,8 @@ before_action :verify_user_access, only: [:show, :edit, :update]
 	# def destroy
 	# end
 
+  def inbox
+  end
 
 private
 	def set_user_type

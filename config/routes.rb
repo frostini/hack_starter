@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'users/sessions' }
-  resources :users, only: [:show, :index]
-  
+
+  resources :users, only: [:show, :index] do
+    collection do
+      get 'inbox' => "users#inbox"
+    end
+  end
+
 
 # cancel_user_registration GET    /users/cancel(.:format)        devise/registrations#cancel
 #        user_registration POST   /users(.:format)               devise/registrations#create

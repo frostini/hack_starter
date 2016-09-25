@@ -1,16 +1,22 @@
 class DwellingsController < ApplicationController
 before_action :authenticate_user!, except: [:show, :index]
 before_action :set_dwelling_context, except: [:index]
-before_action :verify_user_type, only: [:send_inquiry, :new_application, :submit_application]
 
   def index
   end
 
   def show
+
   end
 
   def send_inquiry
-    binding.pry
+    if current_user.send_message(@dwelling, params[:body], params[:subject])
+      flash[:success] = "Congrats! Your inquiry has been send to the host!"
+    else
+      flash[:danger] = "Sorry, something went wrong while sending your inquiry"
+    end
+
+    redirect_to dwelling_path(@dwelling)
   end
 
   def new_application
@@ -28,10 +34,6 @@ private
       flash[:danger] = "Sorry, dwelling could not be found"
       redirect_to dwellings_path and return
     end
-  end
-
-  def user_params
-    params.require(user_type.underscore.to_sym).permit(:first_name, :last_name, :public_user_id, :password, :email)
   end
 
 end
