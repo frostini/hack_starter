@@ -20,7 +20,9 @@ before_action :set_dwelling_context, except: [:index]
 
   def show
     @program_options = @dwelling.programs.map{|p| [p.name, p.id]}
+    if current_user
     @is_favorited = Favorite.where(dwelling_id: @dwelling.id, participant_id: current_user.id).present?
+    end
   end
 
   def send_inquiry

@@ -1,133 +1,107 @@
 <div class="row">
   <div class="col-xs-12">
     <div class="white-box">
-             <%=form_tag("/dwellings", method: "get", id: "search_form") do%>
-              <!-- <div class="col-xs-12"> -->
-                <%= label_tag(:address, "Zip Code or Address:", class: 'd-b') %>
-                <%= text_field_tag(:address, @search_address || 94117, :required => true) %>
-              <!-- </div> -->
-              <!-- <div class="col-xs-12"> -->
-                <%= label_tag(:distance, "Distance from address", class: 'd-b') %>
-                <%= number_field_tag(:distance, :required => true) %>
-              <!-- </div> -->
-              <!-- <div class="col-xs-12"> -->
+      <div class="row">
+<h2 class="text-center">Property Search page</h2>
 
-<%=
-select_tag "bedrooms", "<option value='1'>1</option><option value='2'>2</option><option value='3'>3</option>".html_safe, class: 'form_input', id: 'unique_id'%>
+      <%=form_tag("/dwellings", method: "get", id: "search_form", class: "form-horizontal form-material") do%>
 
-<%=
-select_tag "bathrooms", "<option value='1'>1</option><option value='2'>2</option><option value='3'>3</option>".html_safe, class: 'form_input', id: 'unique_id'%>
-                <%= submit_tag("Find", class: 'btn btn-warning', id: 'distance_slider') %>
+<div class="form-group">
+<label class="col-sm-12">City or Zip Code</label>
+<div class="col-sm-12">
+        <%= text_field_tag(:address, @search_address || 94117, :required => true, class: "form-control form-control-line") %>
+</div>
+</div>
 
-             <%end%>
+<div class="form-group">
+<label class="col-sm-4">Distance from Area</label>
+<div class="col-sm-4">
+        <%= number_field_tag(:distance, 3,:required => true, class: "form-control form-control-line") %>
+</div>
+</div>
+
+<div class="form-group">
+<label class="col-sm-4">Bedrooms</label>
+<div class="col-sm-4">
+        <%=
+        select_tag "bedrooms", "<option value='1'>1</option><option value='2'>2</option><option value='3'>3</option>".html_safe, class: "form-control form-control-line", id: 'unique_id'%>
+</div>
+</div>
+
+<div class="form-group">
+<label class="col-sm-4">Bathrooms</label>
+<div class="col-sm-4">
+        <%=
+        select_tag "bathrooms", "<option value='1'>1</option><option value='2'>2</option><option value='3'>3</option>".html_safe, class: "form-control form-control-line", id: 'unique_id'%>
+</div>
+</div>
+
+<div class="form-group">
+<div class="col-sm-12">
+
+<%= submit_tag("Find", class: 'btn btn-danger', id: 'distance_slider') %>
+</div>
+</div>
+
+
+
+      <%end%>
+      </div>
     </div>
   </div>
 </div>
+
+
 <div class="row">
-<div class="col-xs-12">
+<div class="col-md-6 col-md-push-6">
 <div class="white-box">
-<form class="form-horizontal form-material">
-<div class="form-group">
-<label class="col-md-12">City or Zip Code</label>
-<div class="col-md-12">
-<input type="text" placeholder="San Francisco or 94115" class="form-control form-control-line">
-</div>
-</div>
-<div class="form-group">
-<label class="col-md-12">Distance from location</label>
-<div class="col-md-12">
-<input type="text" placeholder="3 miles" class="form-control form-control-line">
-</div>
-</div>
-<div class="form-group">
-<label class="col-sm-12">Housing Style</label>
-<div class="col-sm-12">
-<select class="form-control form-control-line">
-<option>London</option>
-<option>India</option>
-<option>Usa</option>
-<option>Canada</option>
-<option>Thailand</option>
-</select>
-</div>
-</div>
-<div class="form-group">
-<label class="col-sm-12">Number of Rooms</label>
-<div class="col-sm-12">
-<select class="form-control form-control-line">
-<option>London</option>
-<option>India</option>
-<option>Usa</option>
-<option>Canada</option>
-<option>Thailand</option>
-</select>
-</div>
-</div>
-<div class="form-group">
-<label class="col-sm-12">Number of Bathrooms</label>
-<div class="col-sm-12">
-<select class="form-control form-control-line">
-<option>London</option>
-<option>India</option>
-<option>Usa</option>
-<option>Canada</option>
-<option>Thailand</option>
-</select>
-</div>
-</div>
-<div class="form-group">
-<div class="col-sm-12">
-<button class="btn btn-success">Update Profile</button>
-</div>
-</div>
-</form>
-</div>
-</div>
-</div>
 
-      <div class="row">
-        <div class="col-md-6 col-md-push-6">
-          <div class="white-box">
-
-  <div style="height:100%; width: 100%;"> 
-    <!-- <div id="map-canvas"></div> -->
-            <div id="map" style="width:100%;height:300px;"></div>
-  </div>
-          </div>
-        </div>
+<div style="height:100%; width: 100%;"> 
+<!-- <div id="map-canvas"></div> -->
+<div id="map" style="width:100%;height:300px;"></div>
+</div>
+</div>
+</div>
 
         <div class="col-md-6 col-md-pull-6">
-          <div class="white-box">
-            
-            <% @dwellings.each do |address|%>
-              <div class="media">
-                <div class="media-left">
-                  <%= image_tag("pawandeep.jpg", class: "media-object", width: "64", height: "64")%> 
-                </div>
-                <div class="media-body">
-                  <h4 class="media-heading">
-                    <%=address.addressable.try(:display_name)%>
-                  </h4>
-              <%=address.inspect%>
-                </div>
-                <div class="media-right">
-                  <%= image_tag("pawandeep.jpg", class: "media-object", width: "64", height: "64")%> 
-                </div>
-              </div>
-            <%end%>
-            <div class="media">
-              <h1>hello</h1>
-<div class="side-bar-container" id="listingsSideBarContainer">
-  <div id="marker_list" class="w-80-p c-w-m">
-    <div class="accordion-group" id="list-details">
-    </div>
+
+<% @dwellings.each do |address|%>
+<div class="panel panel-default">
+<div class="panel-heading text-center"><%=address.addressable.try(:display_name)%>
+
+  <span class="label label-danger dwelling_list">Favorite</span>
+
+</div>
+<div class="panel-wrapper collapse in">
+<div class="panel-body">
+<div class="row">
+  <div class="col-xs-4">
+    <%= image_tag("pawandeep.jpg", class: "media-object img-responsive")%> 
+  </div>
+  <div class="col-xs-8">
+    
+<p><%=address.full_street_address%></p>
+<button class="btn btn-default disabled">
+  Bedrooms <%= address.addressable.num_rooms%>
+</button>
+<button class="btn btn-default disabled">
+  Bathrooms <%= address.addressable.num_bathrooms%>
+</button>
   </div>
 </div>
-            </div>
-          </div>
-        </div>
 
-      </div>
+</div>
+<div class="panel-footer">
+<%= link_to"See property details", dwelling_path(address.addressable), class: "center-block text-center" %>
+</div>
+</div>
+</div>
+<!-- </div> -->
+<%end%>
+<!-- </div> -->
+
+</div>
+</div>
       <!-- /.row -->
 
 <% content_for :javascripts do %>
