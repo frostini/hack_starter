@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="white-box">
+      <h3 class="box-title">Favorites</h3>
+
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Dwelling</th>
+              <th>Rent</th>
+              <th># Bedrooms</th>
+              <th># Bathrooms</th>
+              <th>Available?</th>
+              <th>Applied?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @favs.each do |dwelling| %>
+              <tr>
+                <td>
+                  <%= link_to dwelling.display_name, dwelling_path(dwelling), class: "text-danger" %>
+                </td>
+                <td>
+                  <%= number_to_currency(dwelling.monthly_rent, precision: 0) %>/mo
+                </td>
+                <td><%= dwelling.num_rooms %></td>
+                <td><%= dwelling.num_bathrooms %></td>
+                <td><%= dwelling.is_available? ? "Yes" : "No" %></td>
+                <td><%= @applications.where(dwelling_id: dwelling.id).present? ? "Yes" : "No" %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>

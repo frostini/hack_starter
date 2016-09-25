@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       get 'dwelling_applications'
       put 'dwelling_applications/:id/approve' => "users#approve_application"
       put 'dwelling_applications/:id/reject' => "users#reject_application"
+      get 'favorite_dwellings'
     end
   end
 

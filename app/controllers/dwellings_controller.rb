@@ -7,6 +7,7 @@ before_action :set_dwelling_context, except: [:index]
 
   def show
     @program_options = @dwelling.programs.map{|p| [p.name, p.id]}
+    @is_favorited = Favorite.where(dwelling_id: @dwelling.id, participant_id: current_user.id).present?
   end
 
   def send_inquiry
@@ -31,6 +32,37 @@ before_action :set_dwelling_context, except: [:index]
       flash[:success] = "Congrats! You have successfully submitted your application to the host. Good luck!"
     else
       flash[:danger] = "Sorry, something went wrong while sedning your application"
+    end
+
+    redirect_to dwelling_path(@dwelling)
+  end
+
+  def favorite
+    if !current_user.is_participant?
+      flash[:danger] = "Please create or log in to your participant account first!"
+    else
+      fav = Favorite.new(
+        dwelling_id:    @dwelling.id,
+        participant_id: current_user.id
+      )
+
+      if fav.save
+        flash[:success] = "Added to your favorites!"
+      else
+        flash[:danger] = "Hmm, something went wrong while processing your request"
+      end
+    end
+
+    redirect_to dwelling_path(@dwelling)
+  end
+
+  def unfavorite
+    fav = Favorite.where(dwelling_id: @dwelling.id, participant_id: current_user.id).first
+
+    if fav.present? && fav.destroy
+      flash[:success] = "Removed from your favorites!"
+    else
+      flash[:danger] = "Hmm, something went wrong while processing your request"
     end
 
     redirect_to dwelling_path(@dwelling)

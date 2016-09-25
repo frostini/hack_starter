@@ -5,12 +5,26 @@
       <h3 class="box-title">Hi I am Dwelling Show Page</h3>
       <h2><small><%= @dwelling.display_name %></small></h2>
 
+
       <% if current_user.is_participant? %>
         <div class="row">
-          <div class="col-sm-3">
+          <div class="col-sm-2">
+            <% if current_user.is_participant? %>
+              <% if @is_favorited %>
+                <a href=<%= unfavorite_dwelling_url(@dwelling) %> data-method="put" class="btn btn-block btn-warning">
+                  <i class="fa fa-star"></i> <span>Unfavorite</span>
+                </a>
+              <% else %>
+                <a href=<%= favorite_dwelling_url(@dwelling) %> data-method="put" class="btn btn-block btn-outline btn-warning">
+                  <i class="fa fa-star"></i> <span>Favorite</span>
+                </a>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="col-sm-2">
             <button type="button" class="btn btn-block btn-danger" data-toggle="modal" data-target="#inquiryModal">Send Inquiry</button>
           </div>
-          <div class="col-sm-3">
+          <div class="col-sm-2">
             <button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#applicationModal">Apply</button>
           </div>
         </div>

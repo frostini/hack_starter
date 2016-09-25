@@ -83,6 +83,16 @@ before_action :verify_dwelling_application_access, only: [:approve_application, 
     redirect_to dwelling_applications_users_path
   end
 
+  def favorite_dwellings
+    if !current_user.is_participant?
+      flash[:danger] = "Please create or log in to your participant account first!"
+      redirect_to :back and return
+    end
+
+    @favs = current_user.favorite_dwellings
+    @applications = current_user.dwelling_applications
+  end
+
 private
 	def set_user_type
 		@user_type = user_type
