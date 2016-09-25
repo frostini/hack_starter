@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   self.inheritance_column = :user_type
 
   has_many :dwellings
+  has_many :favorites
   has_one :address, :as => :addressable
 
   scope :admins, -> { where(user_type: ADMIN) }
