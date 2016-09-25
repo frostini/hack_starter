@@ -8,28 +8,35 @@
 
 
 
-host_1 = Host.new(
+host_1 = User.new(
                     :first_name =>"Woddy",
                     :last_name => "Allen",
                     :email => "host@gmail.com",
-                    :password => "password123")
+                    :password => "password123",
+                    :user_type => "Host"
+                    )
 host_1.save
 puts host_1
 
 
-participant_1 = Participant.new(
+participant_1 = User.new(
                     :first_name =>"Sancho",
 										:last_name => "Pansa",
 										:email => "participant@gmail.com",
-										:password => "password123")
+										:password => "password123",
+                    :user_type => "Participant"
+
+                    )
 participant_1.save
 puts participant_1
 
 
-admin_1 = Admin.new(:first_name =>"Boss",
+admin_1 = User.new(:first_name =>"Boss",
 										:last_name => "Person",
 										:email => "admin@gmail.com",
-										:password => "password123")
+										:password => "password123",
+                    :user_type => "Admin"
+                    )
 admin_1.save
 puts admin_1
 
