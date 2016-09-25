@@ -49,7 +49,7 @@
   outline: none !important;
 }
 body {
-  background: #4F5467;
+  background: #edf1f5;
   font-family: 'Poppins', sans-serif;
   margin: 0;
   overflow-x: hidden;
@@ -1186,7 +1186,7 @@ pre {
 .btn-danger.focus,
 .btn-danger.disabled.focus {
   background: #fb9678;
-  opacity: 0.8;
+  /*opacity: 0.8;*/
   border: 1px solid #fb9678;
 }
 .btn-default,
@@ -15143,4 +15143,15 @@ h6 {
 .well,
 pre {
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+
+
+.p-h-10{
+  padding-left:10px !important;
+  padding-right:10px !important;
 }

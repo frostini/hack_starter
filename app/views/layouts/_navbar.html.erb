@@ -1,41 +1,31 @@
 <nav class="navbar navbar-default navbar-static-top m-b-0">
    <div class="navbar-header">
-      <!-- Toggle icon for mobile view -->
-      <a class="navbar-toggle hidden-sm hidden-md hidden-lg " href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse"><i class="ti-menu"></i></a>
-      <!-- Logo -->
+      <a class="navbar-toggle hidden-sm hidden-md hidden-lg " href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse">
+         <i class="ti-menu"></i>
+      </a>
       <div class="top-left-part">
          <a class="logo" href="index.html">
-            <!-- Logo icon image, you can use font-icon also -->
             <b><%= image_tag("public_bnb_nav_icon.png") %></b>
-            <!-- Logo text image you can use text also -->
             <span class="hidden-xs"><%= image_tag("public_bnb_nav_text.png") %> </span>
          </a>
       </div>
-      <!-- /Logo -->
-
-      <!-- This is the message dropdown -->
-
       <ul class="nav navbar-top-links navbar-left hidden-xs">
-        <li><a href="javascript:void(0)" class="open-close hidden-xs waves-effect waves-light"><i class="icon-arrow-left-circle ti-menu"></i></a></li>
-
+         <li>
+            <a href="javascript:void(0)" class="open-close hidden-xs waves-effect waves-light">
+               <i class="icon-arrow-left-circle ti-menu"></i>
+            </a>
+         </li>
       </ul>
-
       <ul class="nav navbar-top-links navbar-right pull-right">
-
-
-<%= render "layouts/navmessages" %>
-
-<%= render "layouts/navfavorites" %> 
-
-<%= render "layouts/navprofile" %>
-
-
-
-         <!-- /.dropdown -->
+         <% if user_signed_in? %>
+            <%= render "layouts/navmessages" %>
+            <%= render "layouts/navfavorites" %> 
+            <%= render "layouts/navprofile" %>
+         <%end%>
+         <% unless user_signed_in? %>
+            <a style="margin-top:18px !important;display:inline-block;color:rgba(255,255,255, 1);" href="#" class="m-r-20 m-t-30 ">Dashboard</a>
+            <a  href="https://themeforest.net/item/elite-admin-responsive-dashboard-web-app-kit-/16750820" target="_blank" class="btn btn-danger pull-right m-r-20 m-t-10 p-h-10 btn-rounded btn-outline">Sign Up</a>
+         <%end%>
       </ul>
    </div>
-   <!-- /.navbar-header -->
-   <!-- /.navbar-top-links -->
-   <!-- /.navbar-static-side -->
 </nav>
-<!-- End Top Navigation -->
