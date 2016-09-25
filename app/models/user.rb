@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   end
 
   def name
-    first_name.capitalize + ' ' + last_name_capitalize
+    first_name.capitalize + ' ' + last_name.capitalize
   end
 
   def mailboxer_email(object)

@@ -14,6 +14,37 @@
   </div>
 
   <div class="field">
+    <%= f.label :monthly_household_income %><br />
+    <%= f.number_field :monthly_household_income, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :household_member_size %><br />
+    <%= f.number_field :household_member_size, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :voucher_number %><br />
+    <%= f.text_field :voucher_number, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone, autofocus: true %>
+  </div>
+
+
+  <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
