@@ -1,33 +1,27 @@
-      <div class="row">
-        <div class="col-md-4 col-xs-12">
-          <div class="white-box">
-            <div class="user-bg">
-            
-            
-            <%= image_tag(current_user.avatar_url, class: "img-responsive user_profile_img") %>
+<div class="row">
+  <div class="col-md-4 col-xs-12">
+    <div class="white-box">
+      <div class="user-bg">
 
-              <div class="overlay-box">
-                <div class="user-content"> <a href="javascript:void(0)"><img src="../plugins/images/users/genu.jpg" class="thumb-lg img-circle" alt="img"></a>
-
-                </div>
-              </div>
-            </div>
-            <div class="user-btm-box m-t-20 text-center">
-                  <div class="col-xs-12">
-                  <h4 class="">
-                    Hello
-                  </h4>
-                  <h5 class="">
-                    <%=current_user.name%>
-                  </h5>
-                  </div>
-            </div>
+      <%= image_tag(current_user.avatar_url, class: "img-responsive user_profile_img") %>
+        <div class="overlay-box">
+          <div class="user-content">
+            <a href="javascript:void(0)"><img src="../plugins/images/users/genu.jpg" class="thumb-lg img-circle" alt="img"></a>
           </div>
         </div>
-
-
-
-
+      </div>
+      <div class="user-btm-box m-t-20 text-center">
+        <div class="col-xs-12">
+          <h4 class="">
+            Hello
+          </h4>
+          <h5 class="">
+            <%=current_user.name%>
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
 
         <div class="col-sm-8 col-xs-12">
           <div class="white-box">
@@ -38,7 +32,7 @@
             </ul>
             <div class="tab-content">
               <div class="tab-pane active" id="details">
-                <h4 class="font-bold m-t-30 text-center">Participant Details</h4>
+                <h4 class="font-bold m-t-30 text-center"><%= current_user.user_type %> Details</h4>
                 <hr>
                 <h4 class="m-t-30">Name</h4>
                 <p class="m-t-10">
@@ -48,23 +42,28 @@
                 <p class="m-t-10">
                   <%=current_user.email%>
                 </p>
-                <h4 class="m-t-30">Monthly Income</h4>
-                <p class="m-t-10">
-                  <%=current_user.monthly_household_income%>
-                </p>
-                <h4 class="m-t-30">Household Size</h4>
-                <p class="m-t-10">
-                  <%=current_user.household_member_size%>
-                </p>
-                <h4 class="m-t-30">Voucher Number</h4>
-                <p class="m-t-10">
-                  <%=current_user.voucher_number%>
-                </p>
+
+                <% if current_user.is_participant? %>
+                  <h4 class="m-t-30">Monthly Income</h4>
+                  <p class="m-t-10">
+                    <%=current_user.monthly_household_income%>
+                  </p>
+                  <h4 class="m-t-30">Household Size</h4>
+                  <p class="m-t-10">
+                    <%=current_user.household_member_size%>
+                  </p>
+                  <h4 class="m-t-30">Voucher Number</h4>
+                  <p class="m-t-10">
+                    <%=current_user.voucher_number%>
+                  </p>
+                <% end %>
+
                 <hr>
+
                 <div class="row">
+<% if current_user.is_participant? && current_user.favorites %>
                 <h4 class="">Favorites</h4>
 
-<% if current_user.favorites %>
 <%current_user.favorites.each do |fav|%>
 
 <div class="panel panel-default">
@@ -77,10 +76,10 @@
 <div class="panel-body">
 <div class="row">
   <div class="col-xs-4">
-    <%= image_tag(fav.dwelling.img_url, class: "media-object img-responsive")%> 
+    <%= image_tag(fav.dwelling.img_url, class: "media-object img-responsive")%>
   </div>
   <div class="col-xs-8">
-    
+
 <p><%=fav.dwelling.address.full_street_address%></p>
 <button class="btn btn-default disabled">
   Bedrooms <%= fav.dwelling.num_rooms%>
@@ -102,18 +101,6 @@
 <%end%>
 </div>
 
-<!--                 <div class="row m-t-30">
-<hr>
-                  <div class="col-sm-4 col-xs-6 b-r"> <strong>Full Name</strong> <br>
-                    <p class="text-muted">Johnathan Deo</p>
-                  </div>
-                  <div class="col-sm-4 col-xs-6 b-r"> <strong>Mobile</strong> <br>
-                    <p class="text-muted">(123) 456 7890</p>
-                  </div>
-                  <div class="col-md-4 col-xs-12 b-r"> <strong>Email</strong> <br>
-                    <p class="text-muted">johnathan@admin.com</p>
-                  </div>
-                </div> -->
                 <hr>
 
 

@@ -16,7 +16,14 @@
               <h4 class="font-bold m-t-0"><%= @conversation.subject %></h4>
               <hr>
               <a class="pull-left" href="#">
-                <img class="media-object thumb-sm img-circle" src="../plugins/images/users/pawandeep.jpg" alt="">
+                <% if current_user.is_participant? %>
+                  <%= image_tag(@dwelling.host.avatar_url, class: "media-object thumb-sm img-circle") %>
+                  <%= @dwelling.host.name %>
+                <% else %>
+                  <%= image_tag(@participant.avatar_url, class: "media-object thumb-sm img-circle") %>
+                <% end %>
+
+                <!-- <img class="media-object thumb-sm img-circle" src="../plugins/images/users/pawandeep.jpg" alt=""> -->
               </a>
 
               <div class="media-body">
