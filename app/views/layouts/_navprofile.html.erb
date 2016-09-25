@@ -12,17 +12,25 @@
             My Profile
          <% end %>
       </li>
+      <% if current_user.is_participant? %>
+         <li>
+            <%= link_to favorite_dwellings_users_path do %>
+               <i class="ti-star"></i>
+               Favorites
+            <% end %>
+         </li>
+      <% end %>
       <li>
-         <a href="#">
-            <i class="ti-wallet"></i>
-            My Balance
-         </a>
+         <%= link_to dwelling_applications_users_path do %>
+            <i class="ti-folder"></i>
+            Property Requests
+         <% end %>
       </li>
       <li>
-         <a href="#">
+         <%= link_to inbox_users_path do %>
             <i class="ti-email"></i>
             Inbox
-         </a>
+         <% end %>
       </li>
       <li role="separator" class="divider"></li>
       <li>

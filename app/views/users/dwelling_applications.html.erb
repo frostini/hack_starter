@@ -1,35 +1,40 @@
 <div class="row">
   <div class="col-md-12">
     <div class="white-box">
-      <h3 class="box-title">Applications</h3>
+      <h3 class="box-title"><%= @page_title %></h3>
 
       <% if current_user.is_participant? %>
-        <div class="table-responsive">
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th>Dwelling</th>
-                <th>Rent</th>
-                <th>Status</th>
-                <th>Applied Date</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% current_user.dwelling_applications.each do |application| %>
+        <% applications = current_user.dwelling_applications %>
+        <% if applications.present? %>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
                 <tr>
-                  <td>
-                    <%= link_to application.dwelling.display_name, dwelling_path(application.dwelling), class: "text-danger" %>
-                  </td>
-                  <td>
-                    <%= number_to_currency(application.dwelling.monthly_rent, precision: 0) %>/mo
-                  </td>
-                  <td><%= application.status %></td>
-                  <td><%= application.created_at.strftime("%b %-d") %></td>
+                  <th>Dwelling</th>
+                  <th>Rent</th>
+                  <th>Status</th>
+                  <th>Applied Date</th>
                 </tr>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
+              </thead>
+              <tbody>
+                <% current_user.dwelling_applications.each do |application| %>
+                  <tr>
+                    <td>
+                      <%= link_to application.dwelling.display_name, dwelling_path(application.dwelling), class: "text-danger" %>
+                    </td>
+                    <td>
+                      <%= number_to_currency(application.dwelling.monthly_rent, precision: 0) %>/mo
+                    </td>
+                    <td><%= application.status %></td>
+                    <td><%= application.created_at.strftime("%b %-d") %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        <% else %>
+          <h2><small>No applications yet, search for some properties to get started!</small></h2>
+        <% end %> <!-- end applications present -->
       <% else %>
         <% current_user.listings.each do |listing| %>
           <h3 class="box-title"><%= link_to listing.display_name, dwelling_path(listing), class: "text-danger" %></h3>
@@ -71,19 +76,6 @@
                       </td>
                     </tr>
                   <% end %> <!-- end dwelling_applications -->
-    <!--               <tr>
-                    <td>Lunar probe project</td>
-                    <td>
-                      <div class="progress progress-xs margin-vertical-10 ">
-                        <div class="progress-bar progress-bar-danger" style="width: 35%"></div>
-                      </div>
-                    </td>
-                    <td>May 15, 2015</td>
-                    <td class="text-nowrap">
-                      <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
-                      <a href="#" data-toggle="tooltip" data-original-title="Close"> <i class="fa fa-close text-danger"></i> </a>
-                    </td>
-                  </tr> -->
                 </tbody>
               </table>
             </div>
