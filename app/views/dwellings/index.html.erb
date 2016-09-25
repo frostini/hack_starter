@@ -69,7 +69,17 @@
 <div class="panel panel-default">
 <div class="panel-heading text-center"><%=address.addressable.try(:display_name)%>
 
-  <span class="label label-danger dwelling_list">Favorite</span>
+<%if current_user%>
+                  <% if @is_favorited %>
+                    <a href=<%= unfavorite_dwelling_url(address.addressable) %> data-method="put" class="btn btn-block btn-warning">
+                      <i class="fa fa-star"></i> <span>Unfavorite</span>
+                    </a>
+                  <% else %>
+                    <a href=<%= favorite_dwelling_url(address.addressable) %> data-method="put" class="btn btn-block btn-outline btn-warning">
+                      <i class="fa fa-star"></i> <span>Favorite</span>
+                    </a>
+                  <% end %>
+<%end%>
 
 </div>
 <div class="panel-wrapper collapse in">
