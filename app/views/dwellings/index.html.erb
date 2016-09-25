@@ -73,7 +73,8 @@
 
         <div class="col-md-6 col-md-pull-6">
           <div class="white-box">
-            <% @dwelling.each do |dwelling|%>
+            
+            <% @dwellings.each do |dwelling|%>
               <div class="media">
                 <div class="media-left">
                   <%= image_tag("pawandeep.jpg", class: "media-object", width: "64", height: "64")%> 
@@ -89,6 +90,15 @@
                 </div>
               </div>
             <%end%>
+            <div class="media">
+              <h1>hello</h1>
+<div class="side-bar-container" id="listingsSideBarContainer">
+  <div id="marker_list" class="w-80-p c-w-m">
+    <div class="accordion-group" id="list-details">
+    </div>
+  </div>
+</div>
+            </div>
           </div>
         </div>
 
@@ -100,15 +110,79 @@
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL95_FQF-8xeI7BSxU_YzS5wSW5aAhXuE"></script>
 
-    <script>
-      var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 8
-        });
-      }
-      initMap();
+<script>
+var APP = {};
+APP.mapOptions = {
+  center: new google.maps.LatLng(37.551138,-122.1204182),
+  zoom: 9,
+  mapTypeId: google.maps.MapTypeId.ROADMAP,
+  zoomControl: true, 
+  mapTypeControl: false,
+  scrollwheel: false,
+  zoomControlOptions: {position: google.maps.ControlPosition.LEFT_CENTER}
+};
+APP.infoWindows = [];
+APP.setMarkers = function(map) {
+  var baseUrl = "/dwellings/"
+
+for (i = 0; i < gon.mapData.length; i++) {  
+  var lat = gon.mapData[i][0]["latitude"];
+  var long = gon.mapData[i][0]["longitude"];
+  var title = gon.mapData[i][1]["display_name"];
+  var dwelling_id= gon.mapData[i][1]["id"];
+
+  var latlngset = new google.maps.LatLng(lat, long);
+
+  APP.marker = new google.maps.Marker({  
+                    map: map, 
+                    title: title,
+                    position: latlngset
+                  });
+var infoWindow = new google.maps.InfoWindow();
+var content = "<a href="+baseUrl+dwelling_id+">"+title+"</a>";
+
+  google.maps.event.addListener(APP.marker,'click', (function(marker,content,infowindow){ 
+      return function() {
+          /* close the previous info-window */
+         APP.closeInfoWindows();
+         // collapseListItemPane();
+         
+         infowindow.setContent(content);
+         infowindow.open(map,marker);
+         listItemPane = $('#marker-'+marker.id);
+         $(listItemPane).collapse('show');
+
+          /* keep the handle, in order to close it on next click event */
+          APP.infoWindows[0]=infowindow;
+      };
+  })(APP.marker,content,infoWindow)); 
+
+
+};
+};
+APP.closeInfoWindows = function (){
+       if(APP.infoWindows.length > 0) {
+          /* detach the info-window from the marker ... undocumented in the API docs */
+          APP.infoWindows[0].set("marker", null);
+          /* and close it */
+          APP.infoWindows[0].close();
+          /* blank the array */
+          APP.infoWindows.length = 0;
+       }
+    }
+
+APP.initMap = function() {
+
+  APP.map = new google.maps.Map(document.getElementById('map'), APP.mapOptions);
+  APP.setMarkers(APP.map);
+
+}
+
+
+
+
+APP.initMap();
+
     </script>
 
 

@@ -34,6 +34,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # for geocoding addresses
 gem 'geocoder'
 
+# for storing controller data in js views
+gem 'gon'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

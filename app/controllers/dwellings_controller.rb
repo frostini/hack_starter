@@ -3,7 +3,15 @@ before_action :authenticate_user!, except: [:show, :index]
 before_action :set_dwelling_context, except: [:index]
 
   def index
-    @dwelling = Dwelling.includes(:address)
+    @dwellings = Dwelling.includes(:address)
+    all_listings = []
+    @dwellings.each do |l|
+      listing = []
+      listing << l.address.as_json
+      listing << l.as_json
+      all_listings << listing
+    end
+    gon.mapData = all_listings
   end
 
   def show
