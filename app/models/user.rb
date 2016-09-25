@@ -16,7 +16,6 @@ class User < ActiveRecord::Base
   has_many :dwellings
   has_one :address, :as => :addressable
 
-
   scope :admins, -> { where(user_type: ADMIN) }
   scope :hosts, -> { where(user_type: HOST) }
   scope :participants, -> { where(user_type: PARTICIPANT) }

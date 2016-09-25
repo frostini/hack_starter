@@ -72,6 +72,15 @@ ActiveRecord::Schema.define(version: 20160924221046) do
 
   add_index "dwellings_programs", ["dwelling_id", "program_id"], name: "index_on_dwellings_programs", using: :btree
 
+  create_table "favorites", force: :cascade do |t|
+    t.integer  "dwelling_id"
+    t.integer  "participant_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "favorites", ["dwelling_id", "participant_id"], name: "index_on_favorites", using: :btree
+
   create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|
     t.integer "unsubscriber_id"
     t.string  "unsubscriber_type"

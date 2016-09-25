@@ -3,6 +3,7 @@ before_action :authenticate_user!, only: [:show, :index]
 before_action :set_user, only: [:show]
 before_action :set_user_type
 before_action :verify_user_access, only: [:show, :edit, :update]
+before_action :verify_dwelling_application_access, only: [:approve_application, :reject_application]
 
 	def index
 		@users = user_class.all
@@ -52,6 +53,36 @@ before_action :verify_user_access, only: [:show, :edit, :update]
     @receipts = @conversation.receipts_for current_user
   end
 
+  def dwelling_applications
+    @page_title = if current_user.is_participant?
+      "Applications You Have Submitted"
+    else
+      "Applications You Have Received"
+    end
+  end
+
+  def approve_application
+    @dwelling_application.is_approved = true
+    if @dwelling_application.save
+      flash[:success] = "You have approved #{@dwelling_application.applicant.first_name}'s application. Thanks for helping someone finding a place called home!"
+    else
+      flash[:danger] = "Sorry, something went wrong while approving the application"
+    end
+
+    redirect_to dwelling_applications_users_path
+  end
+
+  def reject_application
+    @dwelling_application.is_approved = false
+    if @dwelling_application.save
+      flash[:success] = "You have rejected #{@dwelling_application.applicant.first_name}'s application"
+    else
+      flash[:danger] = "Sorry, something went wrong while updating the application status"
+    end
+
+    redirect_to dwelling_applications_users_path
+  end
+
 private
 	def set_user_type
 		@user_type = user_type
@@ -75,6 +106,17 @@ private
       redirect_to root_path
     end
   end
+
+  def verify_dwelling_application_access
+    @dwelling_application = DwellingApplication.find_by_id(params[:id])
+
+    unless @dwelling_application.dwelling.host == current_user
+      flash[:danger] = "Sorry, you are not authorized to perform this action"
+      redirect_to :back and return
+    end
+
+  end
+
 	def user_params
 		params.require(user_type.underscore.to_sym).permit(:first_name, :last_name, :public_user_id, :password, :email)
 	end

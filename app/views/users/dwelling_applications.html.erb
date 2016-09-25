@@ -1,0 +1,94 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="white-box">
+      <h3 class="box-title">Applications</h3>
+
+      <% if current_user.is_participant? %>
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Dwelling</th>
+                <th>Status</th>
+                <th>Applied Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% current_user.dwelling_applications.each do |application| %>
+                <tr>
+                  <td>
+                    <%= link_to application.dwelling.display_name, dwelling_path(application.dwelling), class: "text-danger" %>
+                  </td>
+                  <td><%= application.status %></td>
+                  <td><%= application.created_at.strftime("%b %-d") %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      <% else %>
+        <% current_user.listings.each do |listing| %>
+          <h3 class="box-title"><%= link_to listing.display_name, dwelling_path(listing), class: "text-danger" %></h3>
+
+          <% if listing.dwelling_applications.present? %>
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Program</th>
+                    <th>Monthly Income</th>
+                    <th>Household Size</th>
+                    <th>Message</th>
+                    <th>Status</th>
+                    <th>Applied Date</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% listing.dwelling_applications.each do |application| %>
+                    <tr>
+                      <td>
+                        <%= application.applicant.name %>
+                      </td>
+                      <td>
+                        <%= application.program.name %>
+                      </td>
+                      <td>
+                        <%= application.applicant.monthly_household_income %>
+                      </td>
+                      <td><%= application.applicant.household_member_size %></td>
+                      <td><%= application.message %></td>
+                      <td><%= application.status %></td>
+                      <td><%= application.created_at.strftime("%b %-d") %></td>
+                      <td class="text-nowrap">
+                        <a href=<%= "/users/dwelling_applications/#{application.id}/approve" %> data-method="put" data-toggle="tooltip" data-original-title="Approve"> <i class="fa fa-check text-success"></i> </a>
+                        <a href=<%= "/users/dwelling_applications/#{application.id}/reject" %> data-method="put" data-toggle="tooltip" data-original-title="Reject"> <i class="fa fa-close text-danger"></i> </a>
+                      </td>
+                    </tr>
+                  <% end %> <!-- end dwelling_applications -->
+    <!--               <tr>
+                    <td>Lunar probe project</td>
+                    <td>
+                      <div class="progress progress-xs margin-vertical-10 ">
+                        <div class="progress-bar progress-bar-danger" style="width: 35%"></div>
+                      </div>
+                    </td>
+                    <td>May 15, 2015</td>
+                    <td class="text-nowrap">
+                      <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                      <a href="#" data-toggle="tooltip" data-original-title="Close"> <i class="fa fa-close text-danger"></i> </a>
+                    </td>
+                  </tr> -->
+                </tbody>
+              </table>
+            </div>
+          <% else %>
+            <p class="text-muted m-b-20">No Applications Yet.</p>
+          <% end %> <!-- end if application present -->
+        <% end %> <!-- end user listings -->
+      <% end %> <!-- end if user.is_participant? -->
+
+    </div>
+  </div>
+</div>

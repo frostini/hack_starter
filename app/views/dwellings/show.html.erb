@@ -1,21 +1,23 @@
 <!-- .row -->
 <div class="row">
-   <div class="col-md-12">
-      <div class="white-box">
-        <h3 class="box-title">Hi I am Dwelling Show Page</h3>
-        <h2><small><%= @dwelling.display_name %></small></h2>
+  <div class="col-md-12">
+    <div class="white-box">
+      <h3 class="box-title">Hi I am Dwelling Show Page</h3>
+      <h2><small><%= @dwelling.display_name %></small></h2>
 
-        <% if current_user.is_participant? %>
-          <div class="row">
-            <div class="col-sm-3">
-              <button type="button" class="btn btn-block btn-danger" data-toggle="modal" data-target="#inquiryModal">Send Inquiry</button>
-            </div>
+      <% if current_user.is_participant? %>
+        <div class="row">
+          <div class="col-sm-3">
+            <button type="button" class="btn btn-block btn-danger" data-toggle="modal" data-target="#inquiryModal">Send Inquiry</button>
           </div>
-        <% end %>
+          <div class="col-sm-3">
+            <button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#applicationModal">Apply</button>
+          </div>
+        </div>
+      <% end %>
 
-      </div>
-   </div>
-
+    </div>
+  </div>
 </div>
 
 <div class="modal fade" id="inquiryModal" tabindex="-1" role="dialog" aria-labelledby="inquiryModalLabel1">
@@ -43,6 +45,38 @@
           <%= submit_tag 'Submit', :class => 'btn btn-block btn-danger' %>
 
         <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="applicationModal" tabindex="-1" role="dialog" aria-labelledby="applicationModalLabel1">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="applicationModalLabel1">Apply</h4>
+        <h5>Once your application is submitted to the host, s/he will have 5 days to review your application. We will notify you as soon as your application is approved or rejected.</h5>
+      </div>
+      <div class="modal-body">
+        <%= form_tag submit_application_dwelling_path, method: :post do |f| %>
+
+          <%= hidden_field_tag :id, @dwelling.id %>
+
+          <div class="form-group">
+            <%= label_tag 'Rental Term:', nil, class: "control-label" %>
+            <%= select_tag :program_id, options_for_select(@program_options), class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= label_tag 'Message:', nil, class: "control-label" %>
+            <%= text_area_tag :message, nil, placeholder: "Tell your host about yourself and why you are interested in this dwelling!" ,class: "form-control", rows: 5 %>
+          </div>
+
+          <%= submit_tag 'Submit', :class => 'btn btn-block btn-danger' %>
+
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

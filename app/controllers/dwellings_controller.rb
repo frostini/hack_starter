@@ -6,7 +6,7 @@ before_action :set_dwelling_context, except: [:index]
   end
 
   def show
-
+    @program_options = @dwelling.programs.map{|p| [p.name, p.id]}
   end
 
   def send_inquiry
@@ -19,10 +19,21 @@ before_action :set_dwelling_context, except: [:index]
     redirect_to dwelling_path(@dwelling)
   end
 
-  def new_application
-  end
-
   def submit_application
+    application = DwellingApplication.new(
+      dwelling_id:  @dwelling.id,
+      applicant_id: current_user.id,
+      program_id:   params[:program_id],
+      message:      params[:message]
+    )
+
+    if application.save
+      flash[:success] = "Congrats! You have successfully submitted your application to the host. Good luck!"
+    else
+      flash[:danger] = "Sorry, something went wrong while sedning your application"
+    end
+
+    redirect_to dwelling_path(@dwelling)
   end
 
 

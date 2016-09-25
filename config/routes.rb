@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     collection do
       get 'inbox' => "users#inbox"
       get 'message/:id' => "users#view_message"
+      get 'dwelling_applications'
+      put 'dwelling_applications/:id/approve' => "users#approve_application"
+      put 'dwelling_applications/:id/reject' => "users#reject_application"
     end
   end
 
@@ -26,8 +29,9 @@ Rails.application.routes.draw do
   resources :dwellings, only: [:show, :create, :index] do
     member do
       post 'send_inquiry'
-      get  'new_application'
       post 'submit_application'
+      put  'favorite'
+      put  'unfavorite'
     end
   end
 

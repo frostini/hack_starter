@@ -5,4 +5,14 @@ class DwellingApplication < ActiveRecord::Base
 
   scope :approved, -> { where(is_approved: true) }
 
+  def status
+    case is_approved
+    when true
+      'Approved'
+    when false
+      'Rejected'
+    else
+      'Pending'
+    end
+  end
 end
