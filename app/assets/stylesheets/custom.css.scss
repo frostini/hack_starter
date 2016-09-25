@@ -1,3 +1,10 @@
+.label.label-danger.dwelling_list{
+	display: block;
+	margin: 10px auto 0;
+	width: 50%;
+}
+
+
 .btn-sign-up {
   background: rgba(251, 150, 120, 1);
   border: 1px solid rgba(251, 150, 120, 1);
@@ -42,13 +49,27 @@
 }
 
 
+
 @media (min-width: 600px) {
 	.nav-sign-in{
 		margin-right: 30px;
 	}
+	.label.label-danger.dwelling_list{
+		display: inline;
+		margin: 10px 0 0;
+		width: auto;
+	}
 }
+
+
+
 
 #map{
 	width:200px;
 	height: 200px;
 }
+.top-left-part{
+	height:60px;
+}
+
+
