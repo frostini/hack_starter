@@ -9,6 +9,8 @@ class Dwelling < ActiveRecord::Base
 
   scope :available, -> { where(is_available: true) }
 
+
+
   acts_as_messageable
 
 

@@ -1,4 +1,29 @@
 <div class="row">
+  <div class="col-xs-12">
+    <div class="white-box">
+             <%=form_tag("/dwellings", method: "get", id: "search_form") do%>
+              <!-- <div class="col-xs-12"> -->
+                <%= label_tag(:address, "Zip Code or Address:", class: 'd-b') %>
+                <%= text_field_tag(:address, @search_address || 94117, :required => true) %>
+              <!-- </div> -->
+              <!-- <div class="col-xs-12"> -->
+                <%= label_tag(:distance, "Distance from address", class: 'd-b') %>
+                <%= number_field_tag(:distance, :required => true) %>
+              <!-- </div> -->
+              <!-- <div class="col-xs-12"> -->
+
+<%=
+select_tag "bedrooms", "<option value='1'>1</option><option value='2'>2</option><option value='3'>3</option>".html_safe, class: 'form_input', id: 'unique_id'%>
+
+<%=
+select_tag "bathrooms", "<option value='1'>1</option><option value='2'>2</option><option value='3'>3</option>".html_safe, class: 'form_input', id: 'unique_id'%>
+                <%= submit_tag("Find", class: 'btn btn-warning', id: 'distance_slider') %>
+
+             <%end%>
+    </div>
+  </div>
+</div>
+<div class="row">
 <div class="col-xs-12">
 <div class="white-box">
 <form class="form-horizontal form-material">
@@ -74,16 +99,16 @@
         <div class="col-md-6 col-md-pull-6">
           <div class="white-box">
             
-            <% @dwellings.each do |dwelling|%>
+            <% @dwellings.each do |address|%>
               <div class="media">
                 <div class="media-left">
                   <%= image_tag("pawandeep.jpg", class: "media-object", width: "64", height: "64")%> 
                 </div>
                 <div class="media-body">
                   <h4 class="media-heading">
-                    <%=dwelling.try(:display_name)%>
+                    <%=address.addressable.try(:display_name)%>
                   </h4>
-              <%=dwelling.address.inspect%>
+              <%=address.inspect%>
                 </div>
                 <div class="media-right">
                   <%= image_tag("pawandeep.jpg", class: "media-object", width: "64", height: "64")%> 
