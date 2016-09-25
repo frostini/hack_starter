@@ -1,3 +1,7 @@
+.user_profile_img{
+width: 50%;
+}
+
 .label.label-danger.dwelling_list{
 	display: block;
 	margin: 10px auto 0;
@@ -45,7 +49,12 @@
 }
 
 
+@media (min-width: 768px) {
 
+	.user_profile_img{
+width: 100%;
+}
+}
 
 @media (min-width: 600px) {
 	.nav-sign-in{
@@ -56,6 +65,7 @@
 		margin: 10px 0 0;
 		width: auto;
 	}
+
 }
 
 

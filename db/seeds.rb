@@ -94,6 +94,7 @@ Program.create(name: "Month To Month")
 Program.create(name: "Long Term")
 
 dwelling_1 = Dwelling.create(
+  img_url: "https://upload.wikimedia.org/wikipedia/commons/c/c0/Gingerbread_House_Essex_CT.jpg",
   host_id:        host_1.id,
   participant_id: participant_1.id,
   display_name:   "Sweet home in heart of San Jose",
@@ -116,6 +117,7 @@ Address.create(
 )
 
 dwelling_2 = Dwelling.create(
+  img_url: "https://upload.wikimedia.org/wikipedia/commons/c/c0/Gingerbread_House_Essex_CT.jpg",
   host_id:        host_3.id,
   display_name:   "San Jose cozy 1 bedroom",
   monthly_rent:   2500,
@@ -137,6 +139,7 @@ Address.create(
 )
 
 dwelling_3 = Dwelling.create(
+  img_url: "https://upload.wikimedia.org/wikipedia/commons/c/c0/Gingerbread_House_Essex_CT.jpg",
   host_id:        host_2.id,
   display_name:   "Perfect size for a family in North Valley",
   monthly_rent:   3880,
@@ -158,6 +161,7 @@ Address.create(
 dwelling_3.programs << Program.last
 
 dwelling_4 = Dwelling.create(
+  img_url: "https://upload.wikimedia.org/wikipedia/commons/c/c0/Gingerbread_House_Essex_CT.jpg",
   host_id:        host_2.id,
   display_name:   "1 bedroom with parking near Alamo Square",
   monthly_rent:   2150,
@@ -180,6 +184,7 @@ Address.create(
 dwelling_4.programs << Program.last(2)
 
 dwelling_5 = Dwelling.create(
+  img_url: "https://upload.wikimedia.org/wikipedia/commons/c/c0/Gingerbread_House_Essex_CT.jpg",
   host_id:        host_3.id,
   display_name:   "Spacious Studio in Mission",
   monthly_rent:   3880,
@@ -202,6 +207,7 @@ Address.create(
 dwelling_5.programs << Program.first(2)
 
 dwelling_6 = Dwelling.create(
+  img_url: "https://upload.wikimedia.org/wikipedia/commons/c/c0/Gingerbread_House_Essex_CT.jpg",
   host_id:        host_1.id,
   display_name:   "Russian Hill gem",
   monthly_rent:   3660,
