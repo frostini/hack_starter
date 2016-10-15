@@ -18,6 +18,7 @@
 //= require sidebar-nav
 //= require jquery.slimscroll
 //= require waves
-//= require custom.min
+//= require custom
 //= require flashMessage
-
+//= require nouislider
+//= require wNumb

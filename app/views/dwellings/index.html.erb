@@ -2,117 +2,23 @@
   <div class="col-xs-12">
     <div class="white-box">
       <div class="row">
-<h2 class="text-center">Property Search page</h2>
-
-      <%=form_tag("/dwellings", method: "get", id: "search_form", class: "form-horizontal form-material") do%>
-
-<div class="form-group">
-<label class="col-sm-12">City or Zip Code</label>
-<div class="col-sm-12">
-        <%= text_field_tag(:address, @search_address || 94117, :required => true, class: "form-control form-control-line") %>
-</div>
-</div>
-
-<div class="form-group">
-<label class="col-sm-4">Distance from Area</label>
-<div class="col-sm-4">
-        <%= number_field_tag(:distance, 3,:required => true, class: "form-control form-control-line") %>
-</div>
-</div>
-
-<div class="form-group">
-<label class="col-sm-4">Bedrooms</label>
-<div class="col-sm-4">
-        <%=
-        select_tag "bedrooms", "<option value='1'>1</option><option value='2'>2</option><option value='3'>3</option>".html_safe, class: "form-control form-control-line", id: 'unique_id'%>
-</div>
-</div>
-
-<div class="form-group">
-<label class="col-sm-4">Bathrooms</label>
-<div class="col-sm-4">
-        <%=
-        select_tag "bathrooms", "<option value='1'>1</option><option value='2'>2</option><option value='3'>3</option>".html_safe, class: "form-control form-control-line", id: 'unique_id'%>
-</div>
-</div>
-
-<div class="form-group">
-<div class="col-sm-12">
-
-<%= submit_tag("Find", class: 'btn btn-danger', id: 'distance_slider') %>
-</div>
-</div>
-
-
-
-      <%end%>
+        <h2 class="text-center">
+          Property Search page
+        </h2>
+        <%= render 'search_form'%>
       </div>
     </div>
   </div>
 </div>
-
-
 <div class="row">
-<div class="col-md-6 col-md-push-6">
-<div class="white-box">
-
-<div style="height:100%; width: 100%;"> 
-<!-- <div id="map-canvas"></div> -->
-<div id="map" style="width:100%;height:300px;"></div>
-</div>
-</div>
-</div>
-
-        <div class="col-md-6 col-md-pull-6">
-
-<% @dwellings.each do |address|%>
-<div class="panel panel-default">
-<div class="panel-heading text-center"><%=address.addressable.try(:display_name)%>
-
-<%if current_user%>
-                  <% if @is_favorited %>
-                    <a href=<%= unfavorite_dwelling_url(address.addressable) %> data-method="put" class="btn btn-block btn-warning">
-                      <i class="fa fa-star"></i> <span>Unfavorite</span>
-                    </a>
-                  <% else %>
-                    <a href=<%= favorite_dwelling_url(address.addressable) %> data-method="put" class="btn btn-block btn-outline btn-warning">
-                      <i class="fa fa-star"></i> <span>Favorite</span>
-                    </a>
-                  <% end %>
-<%end%>
-
-</div>
-<div class="panel-wrapper collapse in">
-<div class="panel-body">
-<div class="row">
-  <div class="col-xs-4">
-    <%= image_tag(address.addressable.img_url, class: "media-object img-responsive")%> 
+  <div class="col-md-6 col-md-push-6">
+    <%=render 'dwellings_map'%>
   </div>
-  <div class="col-xs-8">
-    
-<p><%=address.full_street_address%></p>
-<button class="btn btn-default disabled">
-  Bedrooms <%= address.addressable.num_rooms%>
-</button>
-<button class="btn btn-default disabled">
-  Bathrooms <%= address.addressable.num_bathrooms%>
-</button>
+  <div class="col-md-6 col-md-pull-6">
+    <%= render 'dwellings_list'%> 
   </div>
 </div>
 
-</div>
-<div class="panel-footer">
-<%= link_to"See property details", dwelling_path(address.addressable), class: "center-block text-center" %>
-</div>
-</div>
-</div>
-<!-- </div> -->
-<%end%>
-<!-- </div> -->
-
-</div>
-</div>
-      <!-- /.row -->
 
 <% content_for :javascripts do %>
 
@@ -120,8 +26,8 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL95_FQF-8xeI7BSxU_YzS5wSW5aAhXuE"></script>
 
 <script>
-var APP = {};
-APP.mapOptions = {
+  var APP = {};
+  APP.mapOptions = {
   center: new google.maps.LatLng(37.551138,-122.1204182),
   zoom: 9,
   mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -129,12 +35,12 @@ APP.mapOptions = {
   mapTypeControl: false,
   scrollwheel: false,
   zoomControlOptions: {position: google.maps.ControlPosition.LEFT_CENTER}
-};
-APP.infoWindows = [];
-APP.setMarkers = function(map) {
+  };
+  APP.infoWindows = [];
+  APP.setMarkers = function(map) {
   var baseUrl = "/dwellings/"
 
-for (i = 0; i < gon.mapData.length; i++) {  
+  for (i = 0; i < gon.mapData.length; i++) {  
   var lat = gon.mapData[i][0]["latitude"];
   var long = gon.mapData[i][0]["longitude"];
   var title = gon.mapData[i][1]["display_name"];
@@ -143,57 +49,105 @@ for (i = 0; i < gon.mapData.length; i++) {
   var latlngset = new google.maps.LatLng(lat, long);
 
   APP.marker = new google.maps.Marker({  
-                    map: map, 
-                    title: title,
-                    position: latlngset
-                  });
-var infoWindow = new google.maps.InfoWindow();
-var content = "<a href="+baseUrl+dwelling_id+">"+title+"</a>";
+  map: map, 
+  title: title,
+  position: latlngset
+  });
+  var infoWindow = new google.maps.InfoWindow();
+  var content = "<a href="+baseUrl+dwelling_id+">"+title+"</a>";
 
   google.maps.event.addListener(APP.marker,'click', (function(marker,content,infowindow){ 
-      return function() {
-          /* close the previous info-window */
-         APP.closeInfoWindows();
-         // collapseListItemPane();
-         
-         infowindow.setContent(content);
-         infowindow.open(map,marker);
-         listItemPane = $('#marker-'+marker.id);
-         $(listItemPane).collapse('show');
+  return function() {
+  /* close the previous info-window */
+  APP.closeInfoWindows();
+  // collapseListItemPane();
 
-          /* keep the handle, in order to close it on next click event */
-          APP.infoWindows[0]=infowindow;
-      };
+  infowindow.setContent(content);
+  infowindow.open(map,marker);
+  listItemPane = $('#marker-'+marker.id);
+  $(listItemPane).collapse('show');
+
+  /* keep the handle, in order to close it on next click event */
+  APP.infoWindows[0]=infowindow;
+  };
   })(APP.marker,content,infoWindow)); 
-
-
-};
-};
-APP.closeInfoWindows = function (){
-       if(APP.infoWindows.length > 0) {
-          /* detach the info-window from the marker ... undocumented in the API docs */
-          APP.infoWindows[0].set("marker", null);
-          /* and close it */
-          APP.infoWindows[0].close();
-          /* blank the array */
-          APP.infoWindows.length = 0;
-       }
-    }
-
-APP.initMap = function() {
-
+  };
+  };
+  APP.closeInfoWindows = function (){
+  if(APP.infoWindows.length > 0) {
+  /* detach the info-window from the marker ... undocumented in the API docs */
+  APP.infoWindows[0].set("marker", null);
+  /* and close it */
+  APP.infoWindows[0].close();
+  /* blank the array */
+  APP.infoWindows.length = 0;
+  }
+  }
+  APP.initMap = function() {
   APP.map = new google.maps.Map(document.getElementById('map'), APP.mapOptions);
   APP.setMarkers(APP.map);
+  }
+  APP.initMap();
+</script>
+<script type="text/javascript">
+  var distanceFormat = {},
+      priceFormat    = {},
+      distanceFormat = wNumb({
+                        decimals: 1,
+                        postfix: " miles"
+                      }),
+          priceFormat = wNumb({
+                          decimals: 0,
+                          prefix: "$"
+                      });
+  $( document ).ready(function() {
+    var slider       = document.getElementById('slider'),
+        sliderPrice  = document.getElementById('slider-price');
+    if (typeof(slider) != 'undefined' && slider != null) {
+      noUiSlider.create(slider, {
+                          start: 20,
+                          connect: "lower",
+                          range: {
+                            'min': 0,
+                            'max': 100},
+                          format: distanceFormat
+                        });
+    };
+    if (typeof(sliderPrice) != 'undefined' && sliderPrice != null) {
+      noUiSlider.create(sliderPrice, {
+                          start: 500,
+                          connect: "lower",
+                          step: 100,
+                          range: {
+                            'min': 0,
+                            '70%': 5000,
+                            'max': 10000},
+                          format: priceFormat
+                        });
+    };
+    var rangeSliderValueElement      = document.getElementById('slider-range-value'),
+        priceRangeSliderValueElement = document.getElementById('slider-price-range-value');
 
-}
-
-
-
-
-APP.initMap();
-
-    </script>
-
-
-
+    slider.noUiSlider.on('update', function( values, handle ) {
+      rangeSliderValueElement.innerHTML = values[handle];
+    });
+    sliderPrice.noUiSlider.on('update', function( values, handle ) {
+      priceRangeSliderValueElement.innerHTML = values[handle];
+    });
+    $( "input#distance_slider" ).on( "click",  function( event ) {
+      event.stopImmediatePropagation();
+      var inputValue      = '',
+          distanceInMiles = '',
+            connectSlider = document.getElementById('slider'),
+              priceSlider = document.getElementById('slider-price'),
+              inputValue  = connectSlider.noUiSlider.get(),
+              priceValue  = priceSlider.noUiSlider.get(),
+              inputValue  = priceFormat.from(inputValue),
+              priceValue  = distanceFormat.from(priceValue);
+      $('#distance').val(inputValue);
+      $('#price').val(priceValue);
+      $('#distance_slider').submit();
+    });
+  });
+</script>
 <%end%>
