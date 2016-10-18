@@ -10,16 +10,17 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
 
- *= bootstrap
- *= form
- *= animsition
- *= universal
- *= sidebar-nav
- *= style
- *= gray
- *= spinners
- *= custom
+ *= require bootstrap
+ *= require form
+ *= require animsition
+ *= require universal
+ *= require sidebar-nav
+ *= require style
+ *= require nouislider
+ *= require nouislider.pips
+ *= require nouislider.tooltips
+ *= require custom
+
+
  */

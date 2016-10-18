@@ -1,0 +1,34 @@
+<%=form_tag("/dwellings", method: "get", id: "search_form", class: "form-horizontal form-material") do%>
+	<div class="row">
+		<label class="col-sm-2">City or Zip Code</label>
+		<div class="col-sm-1">
+			<%= text_field_tag(:address, @search_address || 94117, :required => true, class: "form-control form-control-line") %>
+		</div>
+		<div class="col-sm-8 col-sm-offset-1">
+			<label class="">Distance</label>
+			<div  id="slider"></div>
+			<div id="slider-range-value"></div>
+		</div>
+		<%=hidden_field_tag 'distance' %>
+	</div>
+	<hr>
+	<div class="row">
+		<%=hidden_field_tag 'price' %>
+		<div class="col-sm-2">
+			<label class="">Bedrooms</label>
+			<%=select_tag "bedrooms", "<option value='1'>1</option><option value='2'>2</option><option value='3'>3</option>".html_safe, class: "form-control form-control-line", id: 'unique_id'%>
+		</div>
+		<div class="col-sm-2">
+			<label class="col-sm-2">Bathrooms</label>
+			<%= select_tag "bathrooms", "<option value='1'>1</option><option value='2'>2</option><option value='3'>3</option>".html_safe, class: "form-control form-control-line", id: 'unique_id'%>
+		</div>
+		<div class="col-sm-5 ">
+			<label class="">Max Total Monthly rent</label>
+			<div  id="slider-price"></div>
+			<div id="slider-price-range-value"></div>
+		</div>
+		<div class="col-sm-2">
+		<%= submit_tag("Find", class: 'btn btn-danger col-xs-12 search-btn-layout', id: 'distance_slider') %>
+		</div>
+	</div>
+<%end%>

@@ -3,11 +3,9 @@ before_action :authenticate_user!, except: [:show, :index]
 before_action :set_dwelling_context, except: [:index]
 
   def index
-
     search_lat_long = Geocoder.coordinates(params[:address])
     close_addresses = Address.includes(:addressable).near(search_lat_long, params[:distance]).where(addressable_type: "Dwelling")
     @dwellings = close_addresses.select {|a|  a.addressable.num_rooms >= params[:bedrooms].to_i && a.addressable.num_bathrooms >= params[:bathrooms].to_i  }
-
     all_listings = []
     @dwellings.each do |l|
       listing = []
