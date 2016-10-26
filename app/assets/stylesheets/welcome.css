@@ -11,8 +11,9 @@
  * file per style scope.
  *
 
- *= require bootstrap
- *= require animsition
+	*= require bootstrap
+	*= require animsition
+	*= require_tree ./welcome
 
  */
 
