@@ -15,4 +15,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require_tree ./welcome
+//= require welcome/smooth-scroll.min
+//= require welcome/parallax
+//= require welcome/flexslider.min
+//= require welcome/scripts

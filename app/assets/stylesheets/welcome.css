@@ -13,10 +13,11 @@
 
 	*= require bootstrap
 	*= require animsition
-	*= require_tree ./welcome
+	*= require welcome/themify-icons
+	*= require welcome/flexslider
+	*= require welcome/lightbox.min
+	*= require welcome/theme-startup
+	*= require welcome/custom
+
 
  */
-
-body {
-	background-color: red !important;
-}
