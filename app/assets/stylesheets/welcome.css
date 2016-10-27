@@ -13,11 +13,11 @@
 
 	*= require bootstrap
 	*= require animsition
-	*= require welcome/themify-icons
-	*= require welcome/flexslider
-	*= require welcome/lightbox.min
-	*= require welcome/theme-startup
-	*= require welcome/custom
+	*= require themify-icons
+	*= require flexslider
+	*= require lightbox.min
+	*= require theme-startup
+	*= require custom
 
 
  */

@@ -84,3 +84,6 @@ width: 100%;
 }
 
 
+.parallax > .background-image-holder, .parallax .slides li > .background-image-holder {
+	top: 0vh;
+}

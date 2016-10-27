@@ -13,9 +13,11 @@
 
 
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require bootstrap
-//= require welcome/smooth-scroll.min
-//= require welcome/parallax
-//= require welcome/flexslider.min
-//= require welcome/scripts
+
+//= require smooth-scroll.min
+//= require flexslider.min
+//= require scripts
+//= require turbolinks
