@@ -11,11 +11,16 @@
  * file per style scope.
  *
 
- *= require bootstrap
- *= require animsition
+	*= require bootstrap
+	*= require animsition
+	*= require themify-icons
+	*= require flexslider
+	*= require lightbox.min
+	*= require theme-startup
+	*= require custom
+
 
  */
-
-body {
-	background-color: red !important;
+input.hello-btn{
+	text-transform: lowercase !important;
 }

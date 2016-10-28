@@ -4,18 +4,25 @@
     <title>Base</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_link_tag    'welcome', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'welcome', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'welcome', 'data-turbolinks-track' => true, 'data-turbolinks-track' => true  %>
     <%= csrf_meta_tags %>
+          <link href='http://fonts.googleapis.com/css?family=Lato:300,400%7CRaleway:100,400,300,500,600,700%7COpen+Sans:400,500,600' rel='stylesheet' type='text/css'>
+        <link href="http://fonts.googleapis.com/css?family=Roboto:100,300,400,600,700" rel="stylesheet" type="text/css">
+
   </head>
-  <body class="fix-sidebar">
-    <div id="wrapper">
+  <body class="btn-rounded scroll-assist">
+    <!-- <div id="wrapper"> -->
       <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>">
           <%= value %>
         </div>
       <% end %>
       <%= yield %>
-    </div>
+    <!-- </div> -->
+
+  
     <%= yield :javascripts %>
   </body>
 </html>
+
+
