@@ -21,3 +21,6 @@
 
 
  */
+input.hello-btn{
+	text-transform: lowercase !important;
+}
