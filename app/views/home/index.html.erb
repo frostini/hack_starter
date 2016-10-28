@@ -1,6 +1,6 @@
 <%= render "nav_bar" %>
 
-<div class="main-container">
+<div class="main-container" id="home">
     <section class="image-bg overlay arallax pt240 pb180 pt-xs-80 pb-xs-80 ">
         <div class="background-image-holder">
             <%= image_tag("family_home.jpg", class: "background-image") %> 
@@ -9,8 +9,8 @@
             <div class="row">
                 <div class="col-md-8 col-sm-12 ">
                     
-                    <h1 >A community-based approach to affordable housing</h1>
-                    <a style="font-size:1.3em;" class="btn btn-lg capitalize" href="#purhcase-template">Sign Up</a>
+                    <h1 class="pt-xs-80">A community-based approach to affordable housing</h1>
+                    <a style="font-size:1.3em;" class="btn btn-md capitalize inner-link" href="#about-us">Find out more</a>
                 </div>
             </div>
             <!--end of row-->
@@ -18,29 +18,32 @@
         <!--end of container-->
     </section>
     <section class="" id="about-us">
-        <div class="container">
+        <div class="container ph-sm-10per">
             <div class="row v-align-children">
-                <div class="col-sm-4 col-md-offset-1 mb-xs-24">
-                    <h2 class="mb64 mb-xs-32 text-center">Designed to make affordable housing <span class="pbnb-color">simpler</span> than ever</h2>
+                <div class="col-sm-4 col-md-offset-1 mb-xs-24 ph-xs-10per">
+                    <%= image_tag("pbnb_logo", class: "center-block third-size-img pb16") %>
+                    <h2 class="mb64 mb-xs-32 text-center">public<span class="pbnb-color">bnb</span> helps make affordable housing <span class="pbnb-color">simpler</span> than ever</h2>
                     
                 </div>
                 <div class="col-sm-5 col-sm-6 col-sm-offset-1 text-center">
                     <div class="mb40 mb-xs-24">
                         <h5 class="uppercase bold mb16">For tenants</h5>
                         <p class="fade-1-4">
-                            This is it, that perfect template you've been looking for. It's well built and sharp looking, goodbye competition!
+    The easiest way to find and apply for affordable housing.
+    Create a profile, search for housing and easily apply to multiple places with just a few clicks. 
                         </p>
                     </div>
                     <div class="mb40 mb-xs-24">
                         <h5 class="uppercase bold mb16">For hosts</h5>
                         <p class="fade-1-4">
-                            Utilize the near infinite number of Apple Watch mockups to showcase your app in clear context. Thank god for Dribbble, huh?
+    Everything you need to find safe, reliable tenants.
+    Get instant access to verified income sources, references, background checks, and more so you can always rent to the right tenant.
                         </p>
                     </div>
                     <div class="mb40 mb-xs-24">
                         <h5 class="uppercase bold mb16">For Housing Authorities</h5>
                         <p class="fade-1-4">
-                            This is it, that perfect template you've been looking for. It's well built and sharp looking, goodbye competition!
+We are partnering with housing authorities to help streamline difficult processes and provide secure access to program data, all in an effort to add transparency, create efficiencies, and improve the public housing market at large. 
                         </p>
                     </div>
                 </div>
@@ -59,7 +62,7 @@
                 <div class="col-md-5 col-sm-6 col-md-push-7 col-sm-push-6">
                     <h2>Reinvisioning Public Housing</h2>
                     <p class="lead mb48 mb-xs-32">
-                        Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam.
+We want to modernize the public housing system and fix some of its problems along the way. To do so, we are creating a marketplace where hosts and tenants can come together to meet and contribute to each other's success, making it easier than ever for everyone involved.
                     </p>
                 </div>
             </div>
@@ -67,8 +70,8 @@
         </div>
         <!--end of container-->
     </section>
-    <section>
-        <div class="container sm-text-center">
+    <section id="tenants">
+        <div class="container sm-text-center ph-sm-10per">
             <div class="row">
                     <div class="col-xs-12">
                         <h4 class="uppercase mb16 text-center bold pb12">
@@ -84,25 +87,28 @@
                                 <%= image_tag("tenant_profile.png") %> 
                             </li>
                             <li class="mb32">
-                                <%= image_tag("property_map.png") %> 
+                                <%= image_tag("tenant_profile_sent.png") %> 
                             </li>
                             <li class="mb32">
-                                <%= image_tag("tenant_profile.png") %> 
+                                <%= image_tag("tenant_property_search.png") %> 
+                            </li>
+                            <li class="mb32">
+                                <%= image_tag("payment_calculator.png") %> 
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-sm-3 col-sm-pull-6">
                     <div class="mt80 mt-xs-80 ">
-                        <h5 class="uppercase bold mb16">Universal Application</h5>
+                        <h5 class="uppercase bold mb16">Universal Profile</h5>
                         <p class="fade-1-4">
-                            The reminder that just keeps reminding! Scramble to your watch to silence these intrusive notifications.
+Export your profile to apply for your future home with prospective hosts via email or apply directly through the public<span class="pbnb-color">bnb</span> system. One profile, many uses.
                         </p>
                     </div>
                     <div class="mt80 mt-xs-0 ">
                         <h5 class="uppercase bold mb16">Payment Calculator</h5>
                         <p class="fade-1-4">
-                            No more personal responsibility! You'll now be constantly reminded to stand up and move around.
+We've designed a payment calculator especifically for Section 8/HCV participants. Get a payment estimate for your future home in seconds.
                         </p>
                     </div>
                 </div>
@@ -110,13 +116,13 @@
                     <div class="mt80 mt-xs-0">
                         <h5 class="uppercase bold mb16">Find, Filter, &amp Favorite</h5>
                         <p class="fade-1-4">
-                            Forget empty branding promises, this thing is powered by awesome (you), and we stand by that.
+Find your future home with ease. Search our directry of properties, filter by what matters most to you (location, cost, bedrooms, bathrooms, etc.), and favorite any properties you want to remember.
                         </p>
                     </div>
                     <div class="mt80 mt-xs-0">
-                        <h5 class="uppercase bold mb16">Community Verified</h5>
+                        <h5 class="uppercase bold mb16">Click &amp Apply</h5>
                         <p class="fade-1-4">
-                            And you wont be able to use the app! Make sure you have the phone within close proximity at all times!
+                            Applying to your future home is as simple as a couple of clicks ! Stop wasting time and find your future home with public<span class="pbnb-color">bnb</span>.
                         </p>
                     </div>
                 </div>
@@ -125,8 +131,8 @@
         </div>
         <!--end of container-->
     </section>
-    <section class="bg-secondary">
-        <div class="container sm-text-center">
+    <section class="bg-secondary" id="hosts">
+        <div class="container sm-text-center ph-sm-10per">
             <div class="row">
                                 <div class="col-xs-12">
                         <h4 class="uppercase mb16 text-center bold pb24">
@@ -143,7 +149,7 @@
                         <div class="right">
                             <h5 class="mb8 uppercase bold">Verified Income &amp References</h5>
                             <p class="fade-1-4">
-                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque.
+Income sources are verified by the tenant's respective housing authority and public<span class="pbnb-color">bnb</span> allows its participants to verify their references through the public<span class="pbnb-color">bnb</span> platform. Trusted, accurate data to help you choose your ideal tenant.  
                             </p>
                         </div>
                     </div>
@@ -156,7 +162,7 @@
                         <div class="right">
                             <h5 class="mb8 uppercase bold">Background Checks</h5>
                             <p class="fade-1-4">
-                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque.
+Don’t waste time waiting on paperwork! With a single click you can view a prospective tenant’s criminal background history.
                             </p>
                         </div>
                     </div>
@@ -169,9 +175,9 @@
                             <i class="ti-shield text-white icon-sm"></i>
                         </div>
                         <div class="right">
-                            <h5 class="mb8 uppercase bold">Trusted Community</h5>
+                            <h5 class="mb8 uppercase bold">Trusted &amp Secure Community</h5>
                             <p class="fade-1-4">
-                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque.
+See your prospective tenant's detailed profile and past activity, including past host reviews. 
                             </p>
                         </div>
                     </div>
@@ -184,7 +190,7 @@
                         <div class="right">
                             <h5 class="mb8 uppercase bold">Property &amp Tenant Manager</h5>
                             <p class="fade-1-4">
-                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque.
+Manage one or many properties, applicants, and tenants from the same place. We give you the tools you need to make your life easier and your ventures more successful.
                             </p>
                         </div>
                     </div>
@@ -198,12 +204,13 @@
         <div class="container">
             <div class="row mb64 mb-xs-32">
                 <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 text-center">
-                    <h1 class="large">Coming Soon</h1>
-                    <p class="lead mb48 mb-xs-32 fade-1-4">
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque.
+                    <h1 class="">Don't be shy</h1>
+                    <p class="lead mb32 mb-xs-16 fade-1-4">
+                        We'd love to hear from you. Please feel free to reach out to us at any time !
                     </p>
-                    <input style="max-width:300px;display:block;margin:0 auto 20px;"type="text" placeholder="Input with Placeholder" />
-                    <a style="font-size:1.3em;" class="btn btn-lg capitalize" href="#purhcase-template">Sign Up</a>
+                    <p>hello@publicbnb.com</p>
+<!--                     <input style="max-width:300px;display:block;margin:0 auto 20px;"type="text" placeholder="Input with Placeholder" /> -->
+<!--                     <a style="font-size:1.3em;" class="btn btn-md capitalize" href="#purhcase-template">Sign Up</a> -->
                 </div>
             </div>
             <!--end of row-->
@@ -216,7 +223,7 @@
         </div>
         <!--end of container-->
     </section>
-    <footer class="footer-2 bg-dark pt0 pb40">
+    <footer class="footer-2 bg-dark pt0 pb40" id="sign-up">
         <div class="container">
             <div class="row">
                 <hr class="mt0 mb40" />

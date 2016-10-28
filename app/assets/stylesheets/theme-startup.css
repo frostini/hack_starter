@@ -1340,11 +1340,12 @@ nav .cart-overview a {
     padding: 4px 0;
   }
   .menu li {
-    line-height: 24px;
+    line-height: 4em;
     float: none;
     display: block;
     width: 100%;
     max-width: 100%;
+    text-align: center;
   }
   .menu > li ul {
     position: relative;
@@ -5730,4 +5731,29 @@ li a.btn.btn-sm:hover{
 }
 .pbnb-color{
   color: #F37A62;
+}
+.third-size-img{
+  width: 33%;
+  height: 33%;
+}
+
+@media all and (max-width: 767px){
+  .third-size-img{
+    width: 25%;
+    height: 25%;
+  }
+  .ph-xs-10per{
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  .pr-xs-20p{
+    padding-right: 20%;
+  }
+}
+
+@media all and (min-width: 321px) and (max-width: 767px){
+  .ph-sm-10per{
+    padding-left: 10%;
+    padding-right: 10%;
+  }
 }
