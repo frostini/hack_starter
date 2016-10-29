@@ -854,7 +854,7 @@ body.btn-rounded .btn {
 }
 .bg-primary .btn:hover {
   background: #fff;
-  color: #F37A62;
+  color: #fff;
 }
 /*!---------- 7. NAVIGATION ----------*/
 .nav-container {
@@ -968,6 +968,7 @@ nav.bg-dark .logo-dark {
 }
 .menu li a:hover {
   opacity: 0.8 !important;
+  color: white !important;
 }
 .menu > li {
   margin-right: 32px;
