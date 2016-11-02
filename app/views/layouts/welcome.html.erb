@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Base</title>
+    <title>PublicBnB</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_link_tag    'welcome', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'welcome', 'data-turbolinks-track' => true, 'data-turbolinks-track' => true  %>
@@ -12,11 +12,7 @@
   </head>
   <body class="btn-rounded scroll-assist">
     <!-- <div id="wrapper"> -->
-      <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>">
-          <%= value %>
-        </div>
-      <% end %>
+
       <%= yield %>
     <!-- </div> -->
 

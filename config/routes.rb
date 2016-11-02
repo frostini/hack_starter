@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'home#index'
+  # get 'home#'
 
   devise_for :users, controllers: { sessions: 'users/sessions' }
 
@@ -38,6 +39,7 @@ Rails.application.routes.draw do
     end
   end
 
+get 'new_user/' => 'home#say_hello'
   # root 'dwellings#index'
   
 

@@ -465,7 +465,7 @@ a {
   opacity: 1;
 }
 a:hover {
-  color: #34d3c4;
+  /*color: #34d3c4;*/
   text-decoration: none;
 }
 .label {
@@ -829,7 +829,7 @@ body.btn-rounded .btn {
   color: #fff;
 }
 .btn:visited {
-  color: #F37A62;
+  color: #fff;
 }
 .btn-white:visited,
 .btn:visited:hover {
@@ -967,8 +967,10 @@ nav.bg-dark .logo-dark {
   white-space: normal;
 }
 .menu li a:hover {
-  opacity: 0.8 !important;
-  color: white !important;
+  color: rgba(243,122,98, 1) !important;
+}
+.menu li a.btn.btn-md:hover {
+  color: rgba(255,255,255, 0.8) !important;
 }
 .menu > li {
   margin-right: 32px;
@@ -1720,7 +1722,7 @@ input[type="password"] {
   font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 11px;
   text-transform: uppercase;
-  color: #292929;
+  color: #fff;
   letter-spacing: 1px;
   font-weight: 700;
   display: block;

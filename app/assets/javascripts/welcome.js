@@ -16,8 +16,9 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require bootstrap
-
+//= require flash
 //= require smooth-scroll.min
 //= require flexslider.min
 //= require parallax
+
 //= require turbolinks
