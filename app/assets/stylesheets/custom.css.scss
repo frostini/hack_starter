@@ -50,13 +50,12 @@ width: 50%;
 
 
 @media (min-width: 768px) {
-
 	.user_profile_img{
-width: 100%;
-}
-.search-btn-layout{
-	margin: 12px 0px 0px 30px;
-}
+	width: 100%;
+	}
+	.search-btn-layout{
+		margin: 12px 0px 0px 30px;
+	}
 }
 
 @media (min-width: 600px) {
@@ -68,8 +67,6 @@ width: 100%;
 		margin: 10px 0 0;
 		width: auto;
 	}	
-
-
 }
 
 
@@ -86,4 +83,16 @@ width: 100%;
 
 .parallax > .background-image-holder, .parallax .slides li > .background-image-holder {
 	top: 0vh;
+}
+
+
+
+.flash-message {
+  background-color: red;
+  color: white;
+  z-index: 999;
+  position: fixed;
+  font-weight: bold;
+  width: 100%;
+  padding: 20px 5% 0;
 }

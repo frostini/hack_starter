@@ -1,14 +1,31 @@
 <%= render "nav_bar" %>
-
+<!-- <div class="container-fluid">
+</div> -->
 <div class="main-container" id="home">
+                  <% if notice || alert %>
+  <div class="flash-message <%= notice ? "notice" : ""%><%= alert ? "error" : ""%>">
+        <% if notice %>
+          <p class="text-center"><%= notice %></p>
+        <% elsif alert %>
+          <p><%= alert %></p>
+        <% end %>
+  </div>
+<% end %>
+<!-- <div class="container-fluid" > -->
+
+<!-- </div> -->
     <section class="image-bg overlay arallax pt240 pb180 pt-xs-80 pb-xs-80 ">
+
         <div class="background-image-holder">
             <%= image_tag("family_home.jpg", class: "background-image") %> 
         </div>
+
         <div class="container">
+
+
             <div class="row">
                 <div class="col-md-8 col-sm-12 ">
-                    
+
                     <h1 class="pt-xs-80">A community-based approach to affordable housing</h1>
                     <a style="font-size:1.3em;" class="btn btn-md capitalize inner-link" href="#about-us">Find out more</a>
                 </div>
@@ -204,21 +221,30 @@ Manage one or many properties, applicants, and tenants from the same place. We g
         <div class="container">
             <div class="row mb64 mb-xs-32">
                 <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 text-center">
-                    <h1 class="">Don't be shy</h1>
-                    <p class="lead mb32 mb-xs-16 fade-1-4">
-                        We'd love to hear from you. Please feel free to reach out to us at any time !
-                    </p>
-                    <p>hello@publicbnb.com</p>
-<!--                     <input style="max-width:300px;display:block;margin:0 auto 20px;"type="text" placeholder="Input with Placeholder" /> -->
-<!--                     <a style="font-size:1.3em;" class="btn btn-md capitalize" href="#purhcase-template">Sign Up</a> -->
+                    <h1 class="">We'd love to hear from you.</h1>
+                    <p>Please feel free to reach out, our door is always open.</p>
+                    <div class="row">
+                        <%= form_tag({controller:"home", action:"say_hello"}, {method: "get", id: "", class: ""}) do %> 
+                            <div class="col-sm-6">
+                                <%= text_field_tag( "first_name", nil, name: "first_name", :placeholder => "First Name", class: "")%>
+                            </div>
+                            <div class="col-sm-6">
+                              <%= text_field_tag( "last_name", nil, name: "last_name", :placeholder => "Last Name", class: "")%>
+                            </div>
+                            <div class="col-xs-12">
+                                <%= text_field_tag( "email", nil, name: "email", :placeholder => "some@email.com", class: "", :required => true)%>
+                            </div>
+                            <div class="col-xs-12">
+                                <%= text_area(:comment, nil, size: "2x3", :placeholder => "Enter your message here") %>
+                            </div>
+                            <div class="col-xs-6 col-xs-offset-3 ">
+                                <%= submit_tag 'Say Hello', class: "btn btn-md capitalize " %>
+                            </div>
+                        <% end %>
+                    </div>
+                    
                 </div>
             </div>
-            <!--end of row-->
-<!--             <div class="row">
-                <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 text-center">
-     
-                </div>
-            </div> -->
             <!--end of row-->
         </div>
         <!--end of container-->
