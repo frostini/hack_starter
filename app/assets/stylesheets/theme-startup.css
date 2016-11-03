@@ -1739,6 +1739,11 @@ input[type="password"] {
   margin-bottom: 24px;
   border-radius: 0;
 }
+.contact-us-form input[type="text"],
+.contact-us-form textarea{
+  background: rgba(255,255,255,0.8) !important;
+}
+
 .image-bg input[type="text"],
 .image-bg textarea {
   color: #555;
@@ -5732,9 +5737,7 @@ footer.bg-dark a {
 li a.btn.btn-sm:hover{
   color: white !important;
 }
-.pbnb-color{
-  color: #F37A62;
-}
+
 .third-size-img{
   width: 33%;
   height: 33%;
@@ -5759,4 +5762,22 @@ li a.btn.btn-sm:hover{
     padding-left: 10%;
     padding-right: 10%;
   }
+}
+
+
+.pbnb-color{
+  color: #F37A62;
+}
+
+.white-border-button{
+  border-color: #fff !important;
+}
+.w-t{
+  color: #fff;
+}
+
+.center-button{
+  width: 150px !important;
+  margin: 0 auto !important;
+  display: block !important;
 }

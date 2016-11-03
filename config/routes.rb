@@ -40,6 +40,8 @@ Rails.application.routes.draw do
   end
 
 get 'new_user/' => 'home#say_hello'
+get 'newsletter_signup/' => 'home#newsletter_signup'
+
   # root 'dwellings#index'
   
 
