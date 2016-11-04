@@ -5,21 +5,21 @@ layout "welcome"
   def index
   end
   def say_hello
-person = params
-
-  	flash.now[:notice] = "Congrats! Your inquiry has been sent to the host!"
-  	example = WelcomeMailer.welcome_message(person).deliver!
-  	
-binding.pry
-  	render "index"
-
+    example = WelcomeMailer.welcome_message(home_params).deliver!
+    flash[:notice] = "Thank you for reaching out, looking forward to getting in touch !"
+    binding.pry
+  	redirect_to root_path
   end
 
   def newsletter_signup
-person = params
-example = NewsletterSignupMailer.beta_enlist(person).deliver!
-flash.now[:notice] = "Thank you for signing up for our beta!"
+    example = NewsletterSignupMailer.beta_enlist(home_params).deliver!
+    flash[:notice] = "You will be granted special access. Keep an eye out for an email from us !"
+    binding.pry
+    redirect_to root_path
+  end 
 
-render "index"
+private 
+  def home_params 
+    params.require(:ff).permit(:first_name, :last_name, :email, :message)
   end 
 end

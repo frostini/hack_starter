@@ -9,8 +9,9 @@
         </h5>
       </div>
       <div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-1 text-center">
-        <%= form_tag({controller:"home", action:"newsletter_signup"}, {method: "get", id: "", class: ""}) do %> 
-          <%= text_field_tag( "email", nil, name: "email", :placeholder => "some@email.com", class: "text-center", :required => true)%>
+        <%= form_tag({controller:"home", action:"newsletter_signup"}, {method: "post", id: "hi-newsletter", class: "forma"}) do %> 
+          
+          <%= text_field_tag( "email", nil, name: "ff[email]", :placeholder => "some@email.com", class: "text-center", :required => true, type: :email)%>
           <%= submit_tag 'Say Hello', class: "btn btn-md capitalize white-border-button center-button" %>
         <% end %>
       </div>

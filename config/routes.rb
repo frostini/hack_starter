@@ -39,8 +39,8 @@ Rails.application.routes.draw do
     end
   end
 
-get 'new_user/' => 'home#say_hello'
-get 'newsletter_signup/' => 'home#newsletter_signup'
+post '/new_user' => 'home#say_hello'
+post '/newsletter_signup' => 'home#newsletter_signup'
 
   # root 'dwellings#index'
   

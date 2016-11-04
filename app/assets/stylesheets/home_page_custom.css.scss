@@ -1,0 +1,78 @@
+.flash-message {
+  background-color: #F37A62;
+  color: white;
+  z-index: 999;
+  position: fixed;
+  font-weight: bold;
+  width: 100%;
+  padding: 20px 5% 0;
+}
+
+
+input.hello-btn{
+  text-transform: lowercase !important;
+}
+.alert{
+  margin-top: 100px;
+}
+
+.pbnb-bg-color{
+  background-color: #F37A62;
+}
+
+
+
+
+@media all and (max-width: 767px) {
+.sm-text-center{
+  text-align: center !important;
+}
+}
+
+li a.btn.btn-sm:hover{
+  color: white !important;
+}
+
+.third-size-img{
+  width: 33%;
+  height: 33%;
+}
+
+@media all and (max-width: 767px){
+  .third-size-img{
+    width: 25%;
+    height: 25%;
+  }
+  .ph-xs-10per{
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  .pr-xs-20p{
+    padding-right: 20%;
+  }
+}
+
+@media all and (min-width: 321px) and (max-width: 767px){
+  .ph-sm-10per{
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+}
+
+
+.pbnb-color{
+  color: #F37A62;
+}
+
+.white-border-button{
+  border-color: #fff !important;
+}
+.w-t{
+  color: #fff;
+}
+
+.center-button{
+  width: 150px !important;
+  margin: 0 auto !important;
+  display: block !important;
+}

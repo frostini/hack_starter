@@ -20,16 +20,6 @@
 	*= require lightbox.min
 	*= require theme-startup
 	*= require custom
-
+	*= require home_page_custom
 
  */
-input.hello-btn{
-	text-transform: lowercase !important;
-}
-.alert{
-	margin-top: 100px;
-}
-
-.pbnb-bg-color{
-	background-color: #F37A62;
-}
