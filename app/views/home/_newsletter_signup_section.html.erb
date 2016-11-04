@@ -1,14 +1,14 @@
 <section class=" pbnb-bg-color pb32 pt64">
   <div class="container">
     <div class="row">
-      <div class="col-sm-6 col-sm-offset-1 text-right">
-        <h4 class="uppercase bold w-t">Participate in the future</h4>
+      <div class="col-sm-7  col-md-5 col-md-offset-1 text-right">
+        <h4 class="uppercase bold w-t">Participate in the future of affordable housing</h4>
         <hr class="mb24">
         <h5 class="w-t">
-          Stay up to date on publicbnb's progress and get special access to early beta invites.
+          Stay up-to-date on publicbnb's progress and get special access to an early beta invite.
         </h5>
       </div>
-      <div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-1 text-center">
+      <div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 text-center pt-sm-16">
         <%= form_tag({controller:"home", action:"newsletter_signup"}, {method: "post", id: "hi-newsletter", class: "forma"}) do %> 
           
           <%= text_field_tag( "email", nil, name: "ff[email]", :placeholder => "some@email.com", class: "text-center", :required => true, type: :email)%>
