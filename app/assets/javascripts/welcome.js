@@ -19,6 +19,5 @@
 //= require flash
 //= require smooth-scroll.min
 //= require flexslider.min
-//= require parallax
-
+//= require scripts
 //= require turbolinks

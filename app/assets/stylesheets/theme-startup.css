@@ -1699,6 +1699,7 @@ textarea {
   font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 input[type="text"],
+input[type="email"],
 button,
 textarea,
 select,
@@ -1708,6 +1709,7 @@ input[type="password"] {
   appearance: none;
 }
 .bg-secondary input[type="text"],
+.bg-secondary input[type="email"],
 .bg-secondary textarea,
 .bg-secondary select {
   background: #fff;
@@ -1729,7 +1731,8 @@ input[type="password"] {
   cursor: default;
 }
 input[type="text"],
-input[type="password"] {
+input[type="password"],
+input[type="email"] {
   background: #f5f5f5;
   border: none;
   width: 100%;
@@ -1739,6 +1742,12 @@ input[type="password"] {
   margin-bottom: 24px;
   border-radius: 0;
 }
+.contact-us-form input[type="text"],
+.contact-us-form input[type="email"],
+.contact-us-form textarea{
+  background: rgba(255,255,255,0.8) !important;
+}
+
 .image-bg input[type="text"],
 .image-bg textarea {
   color: #555;
@@ -1754,7 +1763,8 @@ button.transparent {
   color: #fff !important	;
 }
 input[type="text"]:focus,
-input[type="password"]:focus {
+input[type="password"]:focus,
+input[type="email"]:focus {
   outline: 1px solid #ccc;
 }
 textarea {
@@ -5720,43 +5730,3 @@ footer.bg-dark a {
 }
 
 
-
-
-
-@media all and (max-width: 767px) {
-.sm-text-center{
-  text-align: center !important;
-}
-}
-
-li a.btn.btn-sm:hover{
-  color: white !important;
-}
-.pbnb-color{
-  color: #F37A62;
-}
-.third-size-img{
-  width: 33%;
-  height: 33%;
-}
-
-@media all and (max-width: 767px){
-  .third-size-img{
-    width: 25%;
-    height: 25%;
-  }
-  .ph-xs-10per{
-    padding-left: 10%;
-    padding-right: 10%;
-  }
-  .pr-xs-20p{
-    padding-right: 20%;
-  }
-}
-
-@media all and (min-width: 321px) and (max-width: 767px){
-  .ph-sm-10per{
-    padding-left: 10%;
-    padding-right: 10%;
-  }
-}

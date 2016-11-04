@@ -1,0 +1,20 @@
+<section class=" pbnb-bg-color pb32 pt64">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-1 text-right">
+        <h4 class="uppercase bold w-t">Participate in the future</h4>
+        <hr class="mb24">
+        <h5 class="w-t">
+          Stay up to date on publicbnb's progress and get special access to early beta invites.
+        </h5>
+      </div>
+      <div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-1 text-center">
+        <%= form_tag({controller:"home", action:"newsletter_signup"}, {method: "post", id: "hi-newsletter", class: "forma"}) do %> 
+          
+          <%= text_field_tag( "email", nil, name: "ff[email]", :placeholder => "some@email.com", class: "text-center", :required => true, type: :email)%>
+          <%= submit_tag 'Say Hello', class: "btn btn-md capitalize white-border-button center-button" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
