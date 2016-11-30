@@ -3300,7 +3300,7 @@ img {
 }
 .image-slider .slides li > img {
   width: 100%;
-  max-width: 400px;
+  max-width: 280px;
 }
 .row .image-slider {
   margin-bottom: 24px;
